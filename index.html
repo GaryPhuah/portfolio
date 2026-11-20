@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050507">
+  <link rel="canonical" href="https://phuahhongxuan.com/">
+  <meta name="description" content="Phuah Hong Xuan (Gary) — Data Analyst & Automation Portfolio.">
+  <title>Phuah Hong Xuan — Data Analyst &amp; Automation</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050507' stroke='%23c2a4ff' stroke-width='2'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23eae5ec' font-family='sans-serif' font-weight='700' font-size='17'%3EG%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Geist:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/char360/pose-09.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/journey-hd.mp4?v=20261120" as="video" type="video/mp4">
+  <link rel="stylesheet" href="style.css?v=20261120_clean">
+  <link rel="stylesheet" href="assets/skills-wheel.css?v=20261120_clean">
+  <link rel="stylesheet" href="assets/codelink.css?v=20261120_clean">
+</head>
+<body data-section="intro" class="is-loaded">
+  <a class="skip-link" href="#about">Skip to About Me</a>
+
+  <!-- MoncyDev Translucent Lavender Cursor Ring & Corner Ambient Orbs -->
+  <div class="cursor-main" id="cursor-main" aria-hidden="true"></div>
+  <div class="ambient-orb ambient-orb-tl" aria-hidden="true"></div>
+  <div class="ambient-orb ambient-orb-cr" aria-hidden="true"></div>
+
+  <!-- Continuous Fixed Visual Stage Behind Chapters 01–05 -->
+  <div class="video-stage" id="video-stage" aria-hidden="true">
+    <div class="character-rim" id="stage-rim"></div>
+    <canvas id="hero-dust-canvas"></canvas>
+
+    <!-- 01: 360° Interactive Hero Bust -->
+    <div class="char-rig-wrap" id="char-rig-wrap">
+      <div class="char-rig" id="char-rig">
+        <img class="char-frame" src="assets/char360/pose-09.webp" alt="" width="576" height="576" decoding="sync" draggable="false">
+      </div>
+    </div>
+
+    <!-- 02–05: Native Hardware-Decoded All-Keyframe HD Video (V5 -> V4 -> V1) -->
+    <div class="scroll-video-wrap" id="scroll-video-wrap">
+      <video id="journey-video" src="assets/journey-hd.mp4?v=20261120" muted playsinline preload="auto" disablepictureinpicture></video>
+      <div class="video-scrim" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- Minimal Fixed Navigation Header -->
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#intro">Gary.</a>
+
+    <nav class="nav" aria-label="Primary sections">
+      <a class="hover-link" href="#intro" data-nav="intro" aria-current="step">
+        <span class="hover-in"><span>Profile</span><span aria-hidden="true">Profile</span></span>
+      </a>
+      <a class="hover-link" href="#about" data-nav="about">
+        <span class="hover-in"><span>About Me</span><span aria-hidden="true">About Me</span></span>
+      </a>
+      <a class="hover-link" href="#experience" data-nav="experience">
+        <span class="hover-in"><span>Experience</span><span aria-hidden="true">Experience</span></span>
+      </a>
+      <a class="hover-link" href="#education" data-nav="education">
+        <span class="hover-in"><span>Education</span><span aria-hidden="true">Education</span></span>
+      </a>
+      <a class="hover-link" href="#projects" data-nav="projects">
+        <span class="hover-in"><span>Projects</span><span aria-hidden="true">Projects</span></span>
+      </a>
+      <a class="hover-link" href="#skills" data-nav="credentials">
+        <span class="hover-in"><span>Credentials</span><span aria-hidden="true">Credentials</span></span>
+      </a>
+      <a class="hover-link" href="#beyond" data-nav="beyond">
+        <span class="hover-in"><span>Beyond</span><span aria-hidden="true">Beyond</span></span>
+      </a>
+    </nav>
+
+    <a class="nav-resume" href="Phuah_Hong_Xuan_Resume.pdf" download="Phuah_Hong_Xuan_Resume.pdf">
+      <span>Resume PDF</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         01 / PROFILE — MONCYDEV SPLIT + 360° INTERACTIVE CHARACTER STAGE
+         ====================================================================== -->
+    <section class="landing-section" id="intro" aria-labelledby="hero-name">
+      <div class="landing-container" id="landing-container">
+        <div class="landing-intro reveal-on-load">
+          <p class="intro-hi">Hello! I'm</p>
+          <h1 id="hero-name">
+            PHUAH<br>
+            <span>HONG XUAN</span>
+          </h1>
+        </div>
+
+        <div class="landing-info reveal-on-load delay-1">
+          <p class="role-prefix">A Data</p>
+          <div class="landing-info-h2">
+            <span class="swap-a">ANALYST</span>
+            <span class="swap-b" aria-hidden="true">ENGINEER</span>
+          </div>
+          <div class="landing-info-sub">
+            <span class="swap-c">AUTOMATION</span>
+            <span class="swap-d" aria-hidden="true">PIPELINES</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-social-bar" id="hero-social-bar">
+        <div class="social-icons" id="social">
+          <span>
+            <a href="https://github.com/GaryPhuah" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.93c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.25 1.9-.38 2.88-.38s1.96.13 2.88.38c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            </a>
+          </span>
+          <span>
+            <a href="https://linkedin.com/in/phuah-hong-xuan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V19.5H6.94V8.5ZM5.25 3.5A1.97 1.97 0 0 0 3.28 5.47c0 1.08.88 1.97 1.97 1.97a1.97 1.97 0 0 0 1.97-1.97C7.22 4.38 6.33 3.5 5.25 3.5ZM20.44 13.02c0-3.13-1.67-4.59-3.9-4.59-1.8 0-2.6.99-3.05 1.69v-1.45H10.1c.04.96 0 10.83 0 10.83h3.39v-6.05c0-.32.02-.65.12-.88.26-.65.85-1.32 1.84-1.32 1.3 0 1.82.99 1.82 2.44v5.81h3.39v-6.48h-.22Z"/></svg>
+            </a>
+          </span>
+          <span>
+            <a href="https://phuahhongxuan.com" target="_blank" rel="noopener noreferrer" aria-label="Personal Portfolio">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </a>
+          </span>
+          <span>
+            <a href="mailto:hongxuanphuah@gmail.com" aria-label="Email Gary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          </span>
+        </div>
+
+        <a class="hero-scroll-pill" href="#about">
+          <span>Scroll Journey</span>
+          <span class="pill-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         02 / ABOUT ME — WELCOMING CHARACTER STAGE ON RIGHT, CONCISE BRIEF LEFT
+         ====================================================================== -->
+    <section class="about-section" id="about" aria-labelledby="about-headline">
+      <div class="about-left-stage" id="about-left-stage">
+        <p class="section-index-tag num">02 · About Me</p>
+        <h2 class="display about-headline" id="about-headline">
+          DATA &amp;<br><span>AUTOMATION.</span>
+        </h2>
+        <p class="about-copy">
+          Information Systems (Data Analytics) undergraduate based in Kuala Lumpur, engineering enterprise ETL pipelines, SQL diagnostics, KPI dashboards, and workflow automation systems.
+        </p>
+
+        <div class="about-metrics">
+          <div class="about-metric">
+            <strong class="num">10+</strong>
+            <span>ETL Pipelines Deployed</span>
+          </div>
+          <div class="about-metric">
+            <strong class="num">400+</strong>
+            <span>Corporate Clients Supported</span>
+          </div>
+          <div class="about-metric">
+            <strong class="num">15+ hrs</strong>
+            <span>Saved Weekly via Automation</span>
+          </div>
+          <div class="about-metric">
+            <strong class="num">Top 21</strong>
+            <span>of 7,700+ at UTokyo Matsuo Lab</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         03 / EXPERIENCE — CONTINUOUS SEATING + LAPTOP WORK FROM ABOUT ME
+         ====================================================================== -->
+    <section class="split-timeline-section" id="experience" aria-labelledby="exp-headline">
+      <div class="split-timeline-panel">
+        <div class="split-left-stage" id="exp-left-stage">
+          <div class="journey-chapter-tabs" role="navigation" aria-label="Experience milestones">
+            <button type="button" class="chapter-tab is-active" data-spine="exp" data-tab-key="retail" data-tab-progress="0.04">
+              <span class="num">01</span> Retail Ops
+            </button>
+            <button type="button" class="chapter-tab" data-spine="exp" data-tab-key="intern" data-tab-progress="0.50">
+              <span class="num">02</span> IT Intern
+            </button>
+            <button type="button" class="chapter-tab" data-spine="exp" data-tab-key="automation" data-tab-progress="0.96">
+              <span class="num">03</span> Automation
+            </button>
+          </div>
+
+          <div class="bio-header-group">
+            <div>
+              <p class="section-index-tag num">03 · Experience</p>
+              <h2 class="display bio-headline" id="exp-headline">
+                WORK<br><span>EXPERIENCE.</span>
+              </h2>
+            </div>
+            <div class="bio-active-year" aria-live="polite">
+              <strong class="num" id="exp-year-display">2023–26</strong>
+              <span id="exp-role-display">Retail Ops · Very Important Baby</span>
+            </div>
+          </div>
+
+          <div class="bio-body-row" id="exp-body-row">
+            <div class="bio-spine" aria-hidden="true">
+              <div class="bio-spine-fill"></div>
+              <div class="bio-spine-dot"></div>
+            </div>
+
+            <div class="bio-window">
+              <div class="bio-track" id="exp-track">
+                <article class="bio-entry is-active" data-tab="retail" data-year="2023–26" data-role="Retail Ops · Very Important Baby">
+                  <span class="bio-date num">Jan 2023 – Oct 2026 · Very Important Baby</span>
+                  <h3>Retail Sales &amp; Inventory Operations</h3>
+                  <p>Audited daily transactional sales in Excel (Pivot Tables, VLOOKUP) for replenishment and reconciled 200+ POS transactions per shift.</p>
+                </article>
+
+                <article class="bio-entry" data-tab="intern" data-year="2025" data-role="IT Support Intern · 400+ Clients">
+                  <span class="bio-date num">Apr 2025 – Nov 2025 · ANC Group Malaysia</span>
+                  <h3>IT Software Support Specialist (Intern)</h3>
+                  <p>Resolved 500+ Tier-1/2 SQL Accounting &amp; Payroll tickets across 400+ clients, validated LHDN e-Invoicing payloads, and shipped Tableau KPI views.</p>
+                </article>
+
+                <article class="bio-entry" data-tab="automation" data-year="2026" data-role="Automation Specialist · ANC Group">
+                  <span class="bio-date num">Dec 2025 – Oct 2026 · ANC Group Malaysia</span>
+                  <h3>Automation Specialist (Part-time)</h3>
+                  <p>Engineered 10+ Python &amp; n8n ETL pipelines saving 15+ manual hrs/wk, self-hosted Docker Mailtrain v2, Delphi ERP UI automation, and local LLM search.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         04 / EDUCATION — SHIRT TRANSFORMS COLLEGE -> UNIVERSITY -> GRADUATION
+         ====================================================================== -->
+    <section class="split-timeline-section" id="education" aria-labelledby="edu-headline">
+      <div class="split-timeline-panel">
+        <div class="split-left-stage" id="edu-left-stage">
+          <div class="journey-chapter-tabs" role="navigation" aria-label="Education stages">
+            <button type="button" class="chapter-tab is-active" data-spine="edu" data-tab-key="college" data-tab-progress="0.04">
+              <span class="num">01</span> College Shirt
+            </button>
+            <button type="button" class="chapter-tab" data-spine="edu" data-tab-key="university" data-tab-progress="0.50">
+              <span class="num">02</span> University
+            </button>
+            <button type="button" class="chapter-tab" data-spine="edu" data-tab-key="degree" data-tab-progress="0.96">
+              <span class="num">03</span> Graduation Gown
+            </button>
+          </div>
+
+          <div class="bio-header-group">
+            <div>
+              <p class="section-index-tag num">04 · Education</p>
+              <h2 class="display bio-headline" id="edu-headline">
+                ACADEMIC<br><span>PROGRESSION.</span>
+              </h2>
+            </div>
+            <div class="bio-active-year" aria-live="polite">
+              <strong class="num" id="edu-year-display">2023–25</strong>
+              <span id="edu-role-display">Sunway College · GPA 3.88</span>
+            </div>
+          </div>
+
+          <div class="bio-body-row" id="edu-body-row">
+            <div class="bio-spine" aria-hidden="true">
+              <div class="bio-spine-fill"></div>
+              <div class="bio-spine-dot"></div>
+            </div>
+
+            <div class="bio-window">
+              <div class="bio-track" id="edu-track">
+                <article class="bio-entry is-active" data-tab="college" data-year="2023–25" data-role="Sunway College · GPA 3.88">
+                  <span class="bio-date num">Aug 2023 – Jul 2025 · Sunway College</span>
+                  <h3>Diploma in Computer Science</h3>
+                  <p>Major in Data Analytics at Sunway College (GPA 3.88 / 4.00). Built foundations in OOP (C++, Python), SQL database systems, networks, and web development.</p>
+                </article>
+
+                <article class="bio-entry" data-tab="university" data-year="2025–27" data-role="Sunway University · CGPA 3.56">
+                  <span class="bio-date num">Sep 2025 – Sep 2027 · Sunway × Lancaster UK</span>
+                  <h3>B.Sc. (Hons) Information Systems</h3>
+                  <p>Specializing in Data Analytics at Sunway University in collaboration with Lancaster University, UK (CGPA 3.56 / 4.00 · Dean's List).</p>
+                </article>
+
+                <article class="bio-entry" data-tab="degree" data-year="2027" data-role="Honours Conferral · Graduation">
+                  <span class="bio-date num">Sep 2027 Expected · Degree Conferral</span>
+                  <h3>B.Sc. (Hons) Data Analytics Graduate</h3>
+                  <p>Completing DBMS, Analytics Engineering, Big Data Cloud, and BI Systems ahead of Honours graduation in September 2027.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         05 / GRADUATION — INTERNSHIP AVAILABILITY BESIDE 3D HOLOGRAM FINALE
+         ====================================================================== -->
+    <section class="grad-stage-section" id="graduation" aria-labelledby="grad-headline">
+      <div class="grad-left-stage">
+        <p class="section-index-tag num">05 · Graduation</p>
+        <h2 class="display about-headline" id="grad-headline">
+          GRADUATION &amp;<br><span>READINESS.</span>
+        </h2>
+
+        <div class="grad-cards">
+          <article class="honor-card reveal">
+            <div class="honor-top">
+              <span class="honor-rank num">27 Jan – 25 Apr 2027</span>
+              <span class="honor-date">Internship Window</span>
+            </div>
+            <h3>Data Analyst &amp; Automation Internship</h3>
+            <p>Available full-time across Q1–Q2 2027 for Data Analyst, Analytics Engineering, and Workflow Automation roles in Kuala Lumpur or Hybrid teams.</p>
+          </article>
+
+          <article class="honor-card reveal">
+            <div class="honor-top">
+              <span class="honor-rank num">Sep 2027 Expected</span>
+              <span class="honor-date">Sunway × Lancaster UK</span>
+            </div>
+            <h3>B.Sc. (Hons) Information Systems</h3>
+            <p>Dual-degree Honours conferral in Data Analytics (Current CGPA 3.56 / 4.00 · Dean's List Recipient).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         06 / PROJECTS OVERVIEW — 3D CURVED ARC CAROUSEL + BLUR LIGHTBOX
+         ====================================================================== -->
+    <section class="works-showcase" id="projects" aria-labelledby="works-title">
+      <div class="works-panel" id="works-panel">
+        <div class="works-head">
+          <h2 class="display works-title" id="works-title">PROJECTS <span>OVERVIEW.</span></h2>
+          <p class="works-head-note">06 · 4 Categories · 15 Verified Projects<b>Scroll or drag · Click to inspect</b></p>
+        </div>
+
+        <nav class="works-rail" aria-label="Project categories">
+            <button type="button" data-work-index="0" data-work-category="web-apps" aria-current="true"><span class="num">01</span>Web Applications<small class="num">04</small></button>
+            <button type="button" data-work-index="4" data-work-category="ai-iot"><span class="num">02</span>AI &amp; Computer Vision<small class="num">02</small></button>
+            <button type="button" data-work-index="6" data-work-category="enterprise"><span class="num">03</span>Enterprise Systems<small class="num">03</small></button>
+            <button type="button" data-work-index="9" data-work-category="data-analyst"><span class="num">04</span>Data Analytics &amp; ML<small class="num">06</small></button>
+          </nav>
+
+        <!-- 3D Magical Star Mascot Companion -->
+        <div class="works-star-wrap" aria-hidden="true">
+          <video class="works-star-video" autoplay loop muted playsinline preload="auto">
+            <source src="assets/project-star.webm" type="video/webm">
+            <source src="assets/project-star.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="works-viewport" id="works-viewport" aria-label="3D Curved Projects Carousel">
+            <!-- 01: Web Apps - HazeMY -->
+          <figure class="work-card" data-category="web-apps" data-index="0">
+            <button class="work-card-surface" type="button" aria-label="Inspect HazeMY Live Portal">
+              <img src="assets/work/hazemy-01.png" alt="HazeMY live environmental telemetry portal" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>HazeMY Live Portal</strong><span>Next.js 16 · Leaflet GIS · NASA FIRMS</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 02: Web Apps - Cozy Garden Florist -->
+          <figure class="work-card" data-category="web-apps" data-index="1">
+            <button class="work-card-surface" type="button" aria-label="Inspect Cozy Garden Florist">
+              <img src="assets/work/cozygarden.png" alt="Cozy Garden Florist Boutique E-Commerce" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Cozy Garden Florist</strong><span>Boutique E-Commerce · Next.js · Catalog CMS</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 03: Web Apps - Merry Holidays Booking -->
+          <figure class="work-card" data-category="web-apps" data-index="2">
+            <button class="work-card-surface" type="button" aria-label="Inspect Merry Holidays Booking">
+              <img src="assets/work/merryholidays.png" alt="Merry Holidays Tour & Bus Reservation Portal" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Merry Holidays Booking</strong><span>Holiday Reservation · Tour Booking Engine</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 04: Web Apps - Swapify -->
+          <figure class="work-card" data-category="web-apps" data-index="3">
+            <button class="work-card-surface" type="button" aria-label="Inspect Swapify Barter Platform">
+              <img src="assets/work/swapify.png" alt="Swapify Peer-to-Peer Barter Platform" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Swapify Barter Platform</strong><span>P2P Marketplace · Live Bidding · Gadget Barter</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 05: AI & CV - Hand Gesture Recognition -->
+          <figure class="work-card" data-category="ai-iot" data-index="4">
+            <button class="work-card-surface" type="button" aria-label="Inspect Hand Gesture Recognition with Sentiment Analysis">
+              <img src="assets/work/gesture-cv.gif" alt="Hand Gesture Recognition live demo" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Hand Gesture &amp; Sentiment AI</strong><span>MediaPipe · OpenCV · Live Demo GIF</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 06: AI & CV - Smart Flood Management System -->
+          <figure class="work-card" data-category="ai-iot" data-index="5">
+            <button class="work-card-surface" type="button" aria-label="Inspect Smart Flood Management System">
+              <img src="assets/work/smartflood.png" alt="Smart Flood Management System Selangor Portal" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Smart Flood Management System</strong><span>Selangor Portal · IoT Telemetry · Alert Engine</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 07: Enterprise - ANC Group -->
+          <figure class="work-card" data-category="enterprise" data-index="6">
+            <button class="work-card-surface" type="button" aria-label="Inspect ANC Group Enterprise Solutions">
+              <img src="assets/work/ancgroup.png" alt="Enterprise Solutions and Corporate Learning Portal at ANC Group" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>ANC Group Enterprise Solutions</strong><span>10+ Pipelines · n8n · 15+ Hrs/Wk Saved</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 08: Enterprise - AMS SQL -->
+          <figure class="work-card" data-category="enterprise" data-index="7">
+            <button class="work-card-surface" type="button" aria-label="Inspect AMS SQL Cloud Portal">
+              <img src="assets/work/ams-sql.png" alt="AMS SQL Account Management and Database Portal" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>AMS SQL Cloud Portal</strong><span>Enterprise SQL · Account Management · Vercel</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 09: Enterprise - LOQO Malaysia -->
+          <figure class="work-card" data-category="enterprise" data-index="8">
+            <button class="work-card-surface" type="button" aria-label="Inspect LOQO Malaysia Prototype">
+              <img src="assets/work/loqo.png" alt="LOQO Malaysia Clothing Brand Prototype" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>LOQO Malaysia</strong><span>Figma Prototype · Brand E-Commerce UX</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 10: Data Analyst - Predicting Student Dropout Risk -->
+          <figure class="work-card" data-category="data-analyst" data-index="9">
+            <button class="work-card-surface" type="button" aria-label="Inspect Predicting Student Dropout Risk">
+              <img src="assets/work/oulad-01.png" alt="Predicting Student Dropout Risk Power BI Dashboard" loading="eager" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Predicting Student Dropout Risk</strong><span>Power BI Dashboard · 28.7K Records · XGBoost</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 11: Data Analyst - NIKE Sales Price Prediction -->
+          <figure class="work-card" data-category="data-analyst" data-index="10">
+            <button class="work-card-surface" type="button" aria-label="Inspect NIKE Sales Price Prediction">
+              <img src="assets/work/nike-01.png" alt="NIKE Footwear Sales Actual vs Predicted Price Regression" loading="eager" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>NIKE Sales Price Prediction</strong><span>Hedonic Pricing Regression · R² = 0.892</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 12: Data Analyst - Online Shopper Intent -->
+          <figure class="work-card" data-category="data-analyst" data-index="11">
+            <button class="work-card-surface" type="button" aria-label="Inspect Online Shopper Intent on Databricks">
+              <img src="assets/work/shopper-intent.png" alt="Online Shopper Intent Analysis on Databricks" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>Online Shopper Intent (Databricks)</strong><span>PySpark MLlib · 12,330 Sessions · 0.914 AUC</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 13: Data Analyst - KFC Malaysia Operations BI -->
+          <figure class="work-card" data-category="data-analyst" data-index="12">
+            <button class="work-card-surface" type="button" aria-label="Inspect KFC Malaysia Operations BI Dashboard">
+              <img src="assets/work/kfc-bi.png" alt="KFC Malaysia Sales Performance and Operations BI Dashboard" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>KFC Malaysia Operations BI</strong><span>Qlik Sense BI · Multi-Store Operations</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 14: Data Analyst - FATAL FLOW Water Contamination -->
+          <figure class="work-card" data-category="data-analyst" data-index="13">
+            <button class="work-card-surface" type="button" aria-label="Inspect FATAL FLOW Child Survival Analysis">
+              <img src="assets/work/fatal-flow.png" alt="FATAL FLOW Tracing Water Contamination on Child Survival" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>FATAL FLOW: Child Survival</strong><span>SAS Analytics · PROC LIFETEST · p &lt; 0.001</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+
+            <!-- 15: Data Analyst - Database Encryption Benchmark -->
+          <figure class="work-card" data-category="data-analyst" data-index="14">
+            <button class="work-card-surface" type="button" aria-label="Inspect Database Encryption Benchmark across 5M Records">
+              <img src="assets/work/db-01.png" alt="MySQL 8.0 TDE vs MongoDB 5M Record Encryption Benchmark" loading="lazy" decoding="async">
+            </button>
+            <figcaption>
+              <span><strong>5M Record Encryption Benchmark</strong><span>MySQL 8.0 TDE · +4.8% Latency Overhead</span></span>
+              <span class="work-open">Inspect</span>
+            </figcaption>
+          </figure>
+          </div>
+
+        <div class="works-copy" aria-live="polite">
+          <div>
+            <h3 class="works-category" id="works-category">Web Applications</h3>
+            <p class="works-description" id="works-description">Responsive full-stack portals, real-time environmental monitoring systems, e-commerce storefronts, and collaborative platforms built with modern TypeScript and component architectures.</p>
+          </div>
+          <p class="works-tags" id="works-tags">React · Next.js · TypeScript · Tailwind CSS · Leaflet · Node.js · REST APIs · Vercel</p>
+          <p class="works-count">
+            <b class="num" id="works-current">01</b> <span class="num">/ 15</span>
+            <progress id="works-meter" max="15" value="1" aria-label="Projects browsing progress"></progress>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         07 / SKILLS — FIVE TECHNICAL DOMAINS + INTERACTIVE 3D FOLDER DOSSIER
+         ====================================================================== -->
+    <section class="editorial-section" id="skills" aria-labelledby="skills-heading">
+      <div class="section-shell">
+        <div class="section-head reveal">
+          <p class="section-index-tag num">07 · Skills</p>
+          <h2 class="display section-title" id="skills-heading">
+            TECHNICAL <span>STACK.</span>
+          </h2>
+        </div>
+
+        <!-- Interactive 3D Mechanical Skills & Technologies Wheel -->
+        <div id="skills-wheel-root" class="skills-wheel-mount">
+          <div class="sw-mount-skeleton" id="skills-wheel-skeleton" aria-hidden="true">
+            <div class="sw-skel-wheel">
+              <div class="sw-skel-hub"></div>
+            </div>
+            <div class="sw-skel-panel">
+              <div class="sw-skel-line w-40"></div>
+              <div class="sw-skel-line w-70"></div>
+              <div class="sw-skel-line w-full"></div>
+              <div class="sw-skel-line w-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         08 / CERTIFICATES — CODELINK INTERACTIVE KNOWLEDGE NETWORK
+         ====================================================================== -->
+    <section class="editorial-section codelink-section" id="certificates" aria-labelledby="cert-heading">
+      <div class="section-shell codelink-shell">
+        <div class="section-head reveal">
+          <p class="section-index-tag num">08 · Certificates</p>
+          <h2 class="display section-title" id="cert-heading">
+            VERIFIED <span>CREDENTIALS.</span>
+          </h2>
+          <div class="codelink-sub-row">
+            <span class="codelink-badge">
+              <span class="codelink-pulse-dot" aria-hidden="true"></span>
+              CodeLink · My Knowledge Network
+            </span>
+            <span class="codelink-counter" id="codelink-counter">168 Verified Credentials</span>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Stage -->
+        <div class="codelink-stage" id="codelink-stage" role="region" aria-label="Interactive CodeLink Certificate Network">
+          
+          <!-- Layer 1: Meditation Video & Seamless Backdrop -->
+          <div class="codelink-avatar-wrapper" id="codelink-avatar-wrap">
+            <video id="codelink-video" class="codelink-video" muted playsinline preload="auto" poster="assets/credentials-meditate-poster.jpg?v=20261120_speed_2s">
+              <source src="assets/credentials-meditate.webm?v=20261120_speed_2s" type="video/webm">
+              <source src="assets/credentials-meditate.mp4?v=20261120_speed_2s" type="video/mp4">
+            </video>
+            <img id="codelink-still-frame" class="codelink-still-frame" src="assets/credentials-meditate-still.png?v=20261120_speed_2s" alt="Phuah Hong Xuan in Meditation Pose" loading="lazy">
+            
+            <!-- Seamless Edge Dissolve (Radial Feather) -->
+            <div class="codelink-video-feather" aria-hidden="true"></div>
+            <!-- Knowledge Halo behind Avatar -->
+            <div class="codelink-avatar-halo" id="codelink-avatar-halo" aria-hidden="true"></div>
+            <!-- Central Knowledge Core Node -->
+            <div class="codelink-knowledge-core" id="codelink-knowledge-core" aria-hidden="true">
+              <span class="codelink-core-ring"></span>
+              <span class="codelink-core-dot"></span>
+            </div>
+          </div>
+
+          <!-- Layer 2: SVG Network Connections & Pulse Particles -->
+          <svg class="codelink-svg-network" id="codelink-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="codelink-line-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+                <stop offset="40%" stop-color="#a855f7" stop-opacity="0.65"/>
+                <stop offset="100%" stop-color="#c084fc" stop-opacity="0.95"/>
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Layer 3: 3D Floating Certificate Cards (Editorial Collage) -->
+          <div class="codelink-cards-layer" id="codelink-cards-layer">
+            <!-- Dynamic 3D Cards injected by CodeLinkController -->
+          </div>
+
+          <!-- Mobile Deck for responsive screens -->
+          <div class="codelink-mobile-deck" id="codelink-mobile-deck">
+            <!-- Rendered for mobile swipe/grid -->
+          </div>
+        </div>
+        <!-- Credential Vault: Complete 168 Verified Credentials Database -->
+        <div class="codelink-vault" id="codelink-vault">
+          <div class="codelink-vault-header">
+            <div class="codelink-vault-title-wrap">
+              <span class="codelink-vault-tag">Archive Database</span>
+              <h3 class="codelink-vault-heading">ALL VERIFIED CREDENTIALS</h3>
+              <p class="codelink-vault-sub">Browse, filter, and inspect all 168 official certificates and honors across Data Science, AI, Cloud, Cybersecurity, and Industrial IoT.</p>
+            </div>
+            <div class="codelink-vault-search-wrap">
+              <svg class="codelink-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+              <input type="text" id="codelink-vault-search" class="codelink-vault-search" placeholder="Search 168 credentials by name, issuer, skill..." aria-label="Search certificates">
+            </div>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="codelink-vault-filters" id="codelink-vault-filters" role="tablist" aria-label="Filter Credentials">
+            <button type="button" class="codelink-filter-pill is-active" data-filter="all">All <span class="filter-count">168</span></button>
+            <button type="button" class="codelink-filter-pill" data-filter="Data & AI">Data &amp; AI <span class="filter-count">38</span></button>
+            <button type="button" class="codelink-filter-pill" data-filter="Cloud & Infrastructure">Cloud &amp; Systems <span class="filter-count">14</span></button>
+            <button type="button" class="codelink-filter-pill" data-filter="Industrial IoT">Industrial IoT <span class="filter-count">6</span></button>
+            <button type="button" class="codelink-filter-pill" data-filter="Professional Tools & Design">Design &amp; Tools <span class="filter-count">12</span></button>
+            <button type="button" class="codelink-filter-pill" data-filter="Professional & Technical">Verified Records <span class="filter-count">99</span></button>
+          </div>
+
+          <!-- Credential Grid -->
+          <div class="codelink-vault-grid" id="codelink-vault-grid">
+            <!-- Populated dynamically by CodeLinkController -->
+          </div>
+          
+          <!-- Load More Button -->
+          <div class="codelink-vault-more-wrap" id="codelink-vault-more-wrap">
+            <button type="button" class="codelink-load-more-btn" id="codelink-load-more-btn">
+              <span>Load More Credentials</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Layer 4: Fullscreen Certificate Inspection Modal -->
+      <dialog class="codelink-modal" id="codelink-modal" aria-labelledby="codelink-modal-title" aria-modal="true">
+        <div class="codelink-modal-backdrop" id="codelink-modal-backdrop"></div>
+        <div class="codelink-modal-box">
+          <button type="button" class="codelink-modal-close" id="codelink-modal-close" aria-label="Close Certificate Preview">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="codelink-modal-body">
+            <div class="codelink-modal-preview">
+              <img id="codelink-modal-img" src="" alt="Verified Certificate Inspection" class="codelink-modal-img">
+              <div id="codelink-modal-placeholder" class="codelink-modal-placeholder">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3l-5 3l1.523-9.11"/></svg>
+                <h4>Verified Credential Record</h4>
+                <p>Official verified certification under Phuah Hong Xuan.</p>
+              </div>
+            </div>
+            <div class="codelink-modal-info">
+              <span class="codelink-modal-category" id="codelink-modal-category">Data Analytics</span>
+              <h3 class="codelink-modal-title" id="codelink-modal-title">Certificate Title</h3>
+              <p class="codelink-modal-issuer" id="codelink-modal-issuer">Issuing Organization · Date</p>
+              <p class="codelink-modal-desc" id="codelink-modal-desc"></p>
+              <div class="codelink-modal-skills" id="codelink-modal-skills"></div>
+              <div class="codelink-modal-actions">
+                <a id="codelink-modal-verify" href="#" target="_blank" rel="noopener noreferrer" class="codelink-modal-btn">
+                  <span>Verify Credential</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
+    </section>    </section>
+
+    <!-- ======================================================================
+         09 / ACHIEVEMENTS — TACTILE 3D HONORS FOLDER (REFERENCE STATIONERY STYLE)
+         ====================================================================== -->
+    <section class="editorial-section achievements-section" id="achievements" aria-labelledby="achieve-heading">
+      <div class="section-shell">
+        <div class="section-head reveal">
+          <p class="section-index-tag num">09 · Achievements</p>
+          <h2 class="display section-title" id="achieve-heading">
+            COMPETITIONS &amp; <span>HONORS.</span>
+          </h2>
+          <p class="achieve-head-note">Interactive Dossier Folder · 4 Verified Global &amp; Academic Distinctions<b>Hover or tap folder to unfold</b></p>
+        </div>
+
+        <!-- 3D Folder Vault Experience -->
+        <div class="achieve-vault" id="achieve-vault" aria-label="Interactive 3D Achievements Folder">
+          
+          <!-- Outer 3D Scene Wrapper with Perspective -->
+          <div class="folder-3d-scene" id="folder-3d-scene">
+            
+            <!-- Accessible Keyboard / Screen-Reader Toggle Trigger -->
+            <button type="button" class="folder-keyboard-trigger sr-only" id="folder-keyboard-trigger" aria-expanded="false" aria-controls="folder-cards-cluster">
+              Toggle Competitions &amp; Honors Folder
+            </button>
+
+            <!-- The 3D Folder Body Component -->
+            <div class="folder-3d-body" id="folder-3d-body" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-label="Interactive Competitions and Honors Folder. Hover or click to unfold achievements.">
+              
+              <!-- Warm Manila / Yellow Folder Back Plate & Tab -->
+              <div class="folder-back-plate" aria-hidden="true">
+                <!-- Rounded Top File Tab -->
+                <div class="folder-tab-notch">
+                  <span class="folder-tab-label">HONORS // 2025–2026</span>
+                </div>
+
+                <!-- Interior Slot: Authentic Peeking Certificates -->
+                <div class="folder-interior-slot">
+                  <!-- Peeking Document 1: UTokyo -->
+                  <div class="peeking-doc peek-1" aria-hidden="true">
+                    <div class="peeking-doc-top">
+                      <span class="peek-badge gold">Top 21</span>
+                      <span class="peek-title">UTokyo · Matsuo Lab</span>
+                    </div>
+                    <div class="peeking-doc-strip">Certificate of Excellence · Dec 2025</div>
+                  </div>
+
+                  <!-- Peeking Document 2: Advantech -->
+                  <div class="peeking-doc peek-2" aria-hidden="true">
+                    <div class="peeking-doc-top">
+                      <span class="peek-badge silver">1st Runner-Up</span>
+                      <span class="peek-title">Advantech AIoT</span>
+                    </div>
+                    <div class="peeking-doc-strip">Hack The Future · Jul 2026</div>
+                  </div>
+
+                  <!-- Peeking Document 3: Sunway Robotics -->
+                  <div class="peeking-doc peek-3" aria-hidden="true">
+                    <div class="peeking-doc-top">
+                      <span class="peek-badge silver">2nd Place</span>
+                      <span class="peek-title">Sunway Robotics</span>
+                    </div>
+                    <div class="peeking-doc-strip">Dodgebot Competition · Dec 2025</div>
+                  </div>
+
+                  <!-- Peeking Document 4: MAHSA ESTE'25 -->
+                  <div class="peeking-doc peek-4" aria-hidden="true">
+                    <div class="peeking-doc-top">
+                      <span class="peek-badge gold">Gold Award</span>
+                      <span class="peek-title">MAHSA ESTE'25</span>
+                    </div>
+                    <div class="peeking-doc-strip">Hand Gesture CV · Feb 2025</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Front Translucent Frosted Glass Pocket (Hinged at bottom, rotates open) -->
+              <div class="folder-front-cover" id="folder-front-cover" aria-hidden="true">
+                <div class="folder-frosted-pocket">
+                  
+                  <!-- Curved Notch Cutout Contour on Top Rim -->
+                  <div class="pocket-rim-curve">
+                    <svg class="pocket-curve-svg" viewBox="0 0 420 22" preserveAspectRatio="none" fill="none">
+                      <path d="M0,0 L120,0 C138,0 148,14 168,14 L252,14 C272,14 282,0 300,0 L420,0 L420,22 L0,22 Z" fill="rgba(255, 255, 255, 0.38)"/>
+                      <path d="M0,1 L120,1 C138,1 148,15 168,15 L252,15 C272,15 282,1 300,1 L420,1" stroke="rgba(255, 255, 255, 0.9)" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Pocket Content Layout -->
+                  <div class="pocket-body">
+                    <!-- Left: Handwritten warm branding -->
+                    <div class="pocket-typography">
+                      <span class="pocket-handwriting">Honors</span>
+                      <span class="pocket-year-stamp">2025 - 2026</span>
+                      <span class="pocket-count-tag">4 Distinctions</span>
+                    </div>
+
+                    <!-- Right: Tactile Die-Cut Stickers (Mushroom + Star) -->
+                    <div class="pocket-stickers">
+                      <!-- Super Mario Mushroom Die-Cut Sticker -->
+                      <div class="diecut-sticker sticker-mushroom" title="Super Mushroom">
+                        <svg viewBox="0 0 68 68" class="sticker-svg">
+                          <filter id="sticker-shadow-mush" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.32"/>
+                          </filter>
+                          <g filter="url(#sticker-shadow-mush)">
+                            <!-- White Die-Cut Border -->
+                            <path d="M34 6 C20 6 9 17 9 31 C9 36 12 40 16 43 C16 49 20 59 27 60 C31 60.5 37 60.5 41 60 C48 59 52 49 52 43 C56 40 59 36 59 31 C59 17 48 6 34 6 Z" fill="#ffffff"/>
+                            <!-- Black Outer Stroke -->
+                            <path d="M34 8 C21.5 8 11.5 18 11.5 31 C11.5 35.5 14.5 39.5 18 42 C18 47.5 21.5 56.5 27.5 57.5 C31 58 37 58 40.5 57.5 C46.5 56.5 50 47.5 50 42 C53.5 39.5 56.5 35.5 56.5 31 C56.5 18 46.5 8 34 8 Z" fill="#1e1e1e"/>
+                            <!-- Beige Stalk -->
+                            <path d="M22 41 C22 46 23.5 54 28 55 C31 55.5 37 55.5 40 55 C44.5 54 46 46 46 41 C41 42.5 27 42.5 22 41 Z" fill="#fce4b8"/>
+                            <!-- Eyes -->
+                            <ellipse cx="29" cy="48" rx="2" ry="4" fill="#1e1e1e"/>
+                            <ellipse cx="39" cy="48" rx="2" ry="4" fill="#1e1e1e"/>
+                            <circle cx="28.5" cy="46" r="0.8" fill="#ffffff"/>
+                            <circle cx="38.5" cy="46" r="0.8" fill="#ffffff"/>
+                            <!-- Red Mushroom Cap -->
+                            <path d="M34 9.5 C22.5 9.5 13 19 13 31 C13 36 16.5 39.5 21 40.5 C26 41.5 42 41.5 47 40.5 C51.5 39.5 55 36 55 31 C55 19 45.5 9.5 34 9.5 Z" fill="#e52521"/>
+                            <!-- White Spots on Cap -->
+                            <ellipse cx="34" cy="22" rx="9" ry="8" fill="#ffffff"/>
+                            <path d="M13.5 31 C13.5 25 16 21 19 19 C18 24 18 30 20 34 C16.5 34 13.5 32.5 13.5 31 Z" fill="#ffffff"/>
+                            <path d="M54.5 31 C54.5 25 52 21 49 19 C50 24 50 30 48 34 C51.5 34 54.5 32.5 54.5 31 Z" fill="#ffffff"/>
+                          </g>
+                        </svg>
+                      </div>
+
+                      <!-- Honors Star Die-Cut Sticker -->
+                      <div class="diecut-sticker sticker-star" title="Honors Star">
+                        <svg viewBox="0 0 74 74" class="sticker-svg">
+                          <filter id="sticker-shadow-star" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="1" dy="3" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.32"/>
+                          </filter>
+                          <g filter="url(#sticker-shadow-star)">
+                            <!-- White Die-Cut Border for Star -->
+                            <polygon points="37,4 47,24 69,27 53,42 57,64 37,53 17,64 21,42 5,27 27,24" fill="#ffffff" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/>
+                            <!-- Black Border -->
+                            <polygon points="37,5 46.5,24 67.5,27 52,41.5 56,62.5 37,52 18,62.5 22,41.5 6.5,27 27.5,24" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="2" stroke-linejoin="round"/>
+                            <!-- Yellow Star Body -->
+                            <polygon points="37,7 45.5,24 65,27 50.5,41 54.2,60.5 37,50.5 19.8,60.5 23.5,41 9,27 28.5,24" fill="#fed836"/>
+                            <!-- Star Eyes -->
+                            <ellipse cx="32" cy="30" rx="2" ry="4.5" fill="#1e1e1e"/>
+                            <ellipse cx="42" cy="30" rx="2" ry="4.5" fill="#1e1e1e"/>
+                            <circle cx="31.5" cy="28.5" r="0.9" fill="#ffffff"/>
+                            <circle cx="41.5" cy="28.5" r="0.9" fill="#ffffff"/>
+                            <!-- Red Ribbon Banner "HONORS" -->
+                            <g transform="rotate(-6 37 54)">
+                              <!-- White banner outline -->
+                              <rect x="14" y="44" width="46" height="18" rx="4" fill="#ffffff"/>
+                              <rect x="16" y="46" width="42" height="14" rx="3" fill="#d92525"/>
+                              <text x="37" y="56.5" font-family="'Anton', 'Geist', sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.08em">HONORS</text>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Prompt / Interaction Cue at bottom -->
+                  <div class="pocket-cue">
+                    <span class="cue-dot"></span>
+                    <span class="cue-text">Hover or tap to unfold cards</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Realistic Ground Shadow -->
+              <div class="folder-ground-shadow" aria-hidden="true"></div>
+            </div>
+
+            <!-- The 4 Expanded Real Certificate Cards (2x2 Spread) -->
+            <div class="folder-cards-cluster" id="folder-cards-cluster" role="region" aria-label="Achievement Dossier Cards">
+              
+              <!-- Card 1: Top-Left · Certificate of Excellence (Matsuo-Iwasawa Lab) -->
+              <article class="achieve-card card-tl" data-honor-idx="0" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Certificate of Excellence, Matsuo-Iwasawa Lab. Click to inspect full certificate.">
+                <div class="doc-card-sheet">
+                  <div class="doc-card-head">
+                    <span class="doc-tag tag-gold">Top 21 / 7,700+</span>
+                    <span class="doc-date">Dec 2025</span>
+                  </div>
+                  <div class="doc-cert-frame">
+                    <img src="assets/work/cert-utokyo.jpg" alt="UTokyo Certificate of Excellence" class="doc-cert-image" loading="lazy">
+                    <div class="doc-cert-watermark">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                      <span>Inspect Original</span>
+                    </div>
+                  </div>
+                  <div class="doc-card-foot">
+                    <div class="doc-card-meta">
+                      <h3 class="doc-title">Certificate of Excellence</h3>
+                      <p class="doc-issuer">Matsuo-Iwasawa Lab · The University of Tokyo</p>
+                    </div>
+                    <div class="doc-action-icon" aria-hidden="true">
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15L15 5M15 5H7M15 5V13"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 2: Top-Right · SP Poly × Advantech Hackathon -->
+              <article class="achieve-card card-tr" data-honor-idx="1" tabindex="0" role="button" aria-haspopup="dialog" aria-label="1st Runner-Up (2nd Place), SP Poly × Advantech Applied IoT Hackathon. Click to inspect full certificate.">
+                <div class="doc-card-sheet">
+                  <div class="doc-card-head">
+                    <span class="doc-tag tag-silver">1st Runner-Up (2nd)</span>
+                    <span class="doc-date">Jul 2026</span>
+                  </div>
+                  <div class="doc-cert-frame">
+                    <img src="assets/work/cert-advantech.jpg" alt="Advantech Hackathon Certificate of Achievement" class="doc-cert-image" loading="lazy">
+                    <div class="doc-cert-watermark">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                      <span>Inspect Original</span>
+                    </div>
+                  </div>
+                  <div class="doc-card-foot">
+                    <div class="doc-card-meta">
+                      <h3 class="doc-title">Advantech AIoT Hackathon</h3>
+                      <p class="doc-issuer">Singapore Polytechnic × Advantech</p>
+                    </div>
+                    <div class="doc-action-icon" aria-hidden="true">
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15L15 5M15 5H7M15 5V13"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 3: Bottom-Left · Sunway Robotics Club Dodgebot Competition -->
+              <article class="achieve-card card-bl" data-honor-idx="2" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Second Place Achievement Award, Sunway Robotics Club Dodgebot Competition. Click to inspect full certificate.">
+                <div class="doc-card-sheet">
+                  <div class="doc-card-head">
+                    <span class="doc-tag tag-silver">Second Place (2nd)</span>
+                    <span class="doc-date">Dec 2025</span>
+                  </div>
+                  <div class="doc-cert-frame">
+                    <img src="assets/work/cert-dodgebot.jpg" alt="Sunway Robotics Club Dodgebot Certificate" class="doc-cert-image" loading="lazy">
+                    <div class="doc-cert-watermark">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                      <span>Inspect Original</span>
+                    </div>
+                  </div>
+                  <div class="doc-card-foot">
+                    <div class="doc-card-meta">
+                      <h3 class="doc-title">Sunway Robotics Dodgebot</h3>
+                      <p class="doc-issuer">Sunway Robotics Club · Sunway University</p>
+                    </div>
+                    <div class="doc-action-icon" aria-hidden="true">
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15L15 5M15 5H7M15 5V13"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 4: Bottom-Right · MAHSA University ESTE'25 -->
+              <article class="achieve-card card-br" data-honor-idx="3" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Gold Award Winner, MAHSA Engineering Science Tech Exhibition (ESTE'25). Click to inspect full certificate.">
+                <div class="doc-card-sheet">
+                  <div class="doc-card-head">
+                    <span class="doc-tag tag-gold">Gold Award Winner</span>
+                    <span class="doc-date">Feb 2025</span>
+                  </div>
+                  <div class="doc-cert-frame">
+                    <img src="assets/work/cert-mahsa.jpg" alt="MAHSA ESTE'25 Gold Award Certificate" class="doc-cert-image" loading="lazy">
+                    <div class="doc-cert-watermark">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                      <span>Inspect Original</span>
+                    </div>
+                  </div>
+                  <div class="doc-card-foot">
+                    <div class="doc-card-meta">
+                      <h3 class="doc-title">MAHSA Exhibition (ESTE'25)</h3>
+                      <p class="doc-issuer">MAHSA University · Faculty of Engineering</p>
+                    </div>
+                    <div class="doc-action-icon" aria-hidden="true">
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 15L15 5M15 5H7M15 5V13"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Mobile quick collapse / close bar -->
+            <div class="folder-mobile-controls" id="folder-mobile-controls">
+              <button type="button" class="folder-collapse-btn" id="folder-collapse-btn" aria-label="Collapse Achievements Folder">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                Collapse Folder
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detail Inspection Modal for Achievement Dossiers with Real Certificate Image Display -->
+    <dialog class="honor-modal" id="honor-modal" aria-labelledby="honor-modal-title" aria-modal="true">
+      <div class="honor-modal-backdrop" id="honor-modal-backdrop"></div>
+      <div class="honor-modal-dialog">
+        <button type="button" class="honor-modal-close" id="honor-modal-close" aria-label="Close Honor Details">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="honor-modal-content">
+          <!-- Real Certificate Image Showcase -->
+          <div class="honor-modal-cert-wrap">
+            <img id="honor-modal-img" src="assets/work/cert-utokyo.jpg" alt="Verified Certificate Inspection" class="honor-modal-cert-img" loading="lazy">
+          </div>
+          <div class="honor-modal-details">
+            <div class="honor-modal-top">
+              <span class="honor-modal-badge" id="honor-modal-badge">Top 21 / 7,700+</span>
+              <span class="honor-modal-date num" id="honor-modal-date">Dec 2025</span>
+            </div>
+            <h3 class="honor-modal-title" id="honor-modal-title">Certificate of Excellence</h3>
+            <p class="honor-modal-issuer" id="honor-modal-issuer">Matsuo-Iwasawa Lab · The University of Tokyo</p>
+            <div class="honor-modal-divider"></div>
+            <p class="honor-modal-desc" id="honor-modal-desc"></p>
+            <div class="honor-modal-meta" id="honor-modal-meta"></div>
+            <div class="honor-modal-footer">
+              <div class="honor-modal-nav">
+                <button type="button" class="honor-modal-navbtn" id="honor-modal-prev" aria-label="Previous Honor">← Previous</button>
+                <button type="button" class="honor-modal-navbtn" id="honor-modal-next" aria-label="Next Honor">Next →</button>
+              </div>
+              <span class="honor-modal-count num" id="honor-modal-count">01 / 04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ======================================================================
+         10 / CONTACT & BEYOND
+         ====================================================================== -->
+    <footer class="beyond-section" id="beyond" aria-labelledby="beyond-title">
+      <div class="beyond-container">
+        <div class="beyond-backdrop" aria-hidden="true">
+          <video class="beyond-video" id="beyond-video" autoplay loop muted playsinline preload="auto" poster="assets/scene-beyond.jpg">
+            <source src="assets/beyond-hd.mp4?v=20261120" type="video/mp4">
+          </video>
+          <div class="beyond-purple-tint"></div>
+        </div>
+
+        <div class="beyond-content">
+          <p class="section-index-tag num">10 · Contact / Beyond</p>
+          <h2 class="display beyond-title reveal" id="beyond-title">
+            BEYOND<br><span>CONTACT.</span>
+          </h2>
+          <p class="beyond-desc reveal">
+            Available for Data Analyst &amp; Automation internships from <strong>27 Jan – 25 Apr 2027</strong>.
+          </p>
+
+          <div class="contact-columns reveal">
+            <div class="contact-col">
+              <h3>Direct</h3>
+              <a href="mailto:hongxuanphuah@gmail.com">hongxuanphuah@gmail.com</a>
+              <a class="num" href="tel:+60162010112">+60 16-201 0112</a>
+            </div>
+
+            <div class="contact-col">
+              <h3>Links</h3>
+              <a class="contact-social" href="https://github.com/GaryPhuah" target="_blank" rel="noopener noreferrer">
+                <span>Github</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="contact-social" href="https://linkedin.com/in/phuah-hong-xuan" target="_blank" rel="noopener noreferrer">
+                <span>Linkedin</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="contact-social" href="https://phuahhongxuan.com" target="_blank" rel="noopener noreferrer">
+                <span>Personal Portfolio</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+              <a class="contact-social" href="Phuah_Hong_Xuan_Resume.pdf" download="Phuah_Hong_Xuan_Resume.pdf">
+                <span>Resume PDF</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="beyond-meta reveal">
+            <span>Sunway Analytics Society &amp; Tzu Chi Collegiate Youth</span>
+            <span>English · Mandarin · Malay · Cantonese · Hokkien</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Fixed Bottom Biaoge Transport Scrubber (Tracks All 10 Chapters) -->
+  <div class="transport" role="region" aria-label="Scroll timeline scrubber">
+    <div class="transport-status">
+      <b class="num" id="section-index">01 / PROFILE</b>
+      <span id="section-label">360° Avatar &amp; Role</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-track" aria-hidden="true">
+        <div class="timeline-fill" id="timeline-fill"></div>
+      </div>
+      <input id="timeline" type="range" min="0" max="10000" step="1" value="0" aria-label="Scroll progress">
+    </div>
+    <div class="transport-actions">
+      <span class="timecode num" id="timecode" aria-hidden="true">00:00 / 00:10</span>
+      <button class="motion-button" id="motion-button" type="button" aria-pressed="false">Pause motion</button>
+    </div>
+  </div>
+
+  <!-- Biaoge Full-Screen Glass Blur Work Lightbox Modal -->
+  <dialog id="work-lightbox" class="work-lightbox" aria-labelledby="work-lightbox-title" aria-describedby="work-lightbox-description">
+    <div class="work-lightbox-shell">
+      <button class="work-lightbox-close" id="work-lightbox-close" type="button" aria-label="Close work preview">Close</button>
+      <div class="work-lightbox-media">
+        <img id="work-lightbox-image" alt="" decoding="async">
+      </div>
+      <aside class="work-lightbox-info">
+        <p class="work-lightbox-kicker" id="work-lightbox-kicker">Predictive ML</p>
+        <h2 class="work-lightbox-title" id="work-lightbox-title">Project Title</h2>
+        <p class="work-lightbox-description" id="work-lightbox-description">Project summary.</p>
+        <a class="work-lightbox-link" id="work-lightbox-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Open Project</a>
+        <p class="work-lightbox-count num" id="work-lightbox-count">01 / 08</p>
+        <nav class="work-lightbox-nav" aria-label="Switch project">
+          <button id="work-lightbox-prev" type="button">Previous</button>
+          <button id="work-lightbox-next" type="button">Next</button>
+        </nav>
+      </aside>
+    </div>
+  </dialog>
+
+  <!-- Biaoge Interactive Unfolding 3D Folder Dossier Modal -->
+  <dialog id="portfolio-focus" class="portfolio-focus" aria-labelledby="focus-heading" aria-describedby="focus-description">
+    <div class="focus-scene" aria-hidden="true"></div>
+    <h2 class="focus-heading" id="focus-heading">
+      <small>Core Engineering Domains</small>
+      <strong>A FOLDER FULL OF SYSTEMS.</strong>
+    </h2>
+    <button class="focus-close" id="focus-close" type="button" autofocus aria-label="Close archive folder">Close</button>
+    <div class="focus-stage">
+      <div class="focus-content" id="focus-content">
+        <div class="focus-gallery" aria-label="Three Core Domains">
+          <article class="portfolio-card" data-jump-work="12" tabindex="0">
+            <img src="assets/card-etl.jpg" alt="Data pipeline architecture illustration" width="480" height="380">
+            <div class="card-info">
+              <h3 class="card-label">ETL &amp; OPS</h3>
+              <p>10+ Python and n8n pipelines saving 15+ hours weekly alongside Docker and Delphi ERP.</p>
+              <span class="card-category">Python · n8n · Docker</span>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-jump-work="0" tabindex="0">
+            <img src="assets/card-ml.png" alt="Predictive analytics ROC curve graphic" width="480" height="380">
+            <div class="card-info">
+              <h3 class="card-label">ML &amp; SHAP</h3>
+              <p>XGBoost retention modeling (0.9434 ROC-AUC) on 32,500+ records and UTokyo Top 21.</p>
+              <span class="card-category">XGBoost · SHAP · Power BI</span>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-jump-work="6" tabindex="0">
+            <img src="assets/card-iot.png" alt="Edge IoT telemetry waves illustration" width="480" height="380">
+            <div class="card-info">
+              <h3 class="card-label">IOT &amp; GIS</h3>
+              <p>HazeMY telemetry (Next.js + NASA FIRMS) and SP Poly × Advantech 1st Runner-Up.</p>
+              <span class="card-category">Next.js · Leaflet · ADAM-6717</span>
+            </div>
+          </article>
+        </div>
+        <img class="focus-front" src="assets/folder-front.png" alt="Portfolio-Gary front pocket" width="866" height="190">
+      </div>
+    </div>
+    <p class="focus-instruction" id="focus-description">Click any domain card to jump to its project, or press ESC to close</p>
+  </dialog>
+
+  <script src="main.js?v=20261120_clean"></script>
+  <script src="assets/skills-wheel.js?v=20261120_clean" defer></script>
+  <script src="assets/certificate-data.js?v=20261120_clean"></script>
+  <script src="assets/codelink.js?v=20261120_speed_2s" defer></script>
+</body>
+</html>

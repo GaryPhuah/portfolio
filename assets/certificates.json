@@ -1,0 +1,131 @@
+[
+  {
+    "id": "datacamp-data-analyst",
+    "title": "Data Analyst Associate",
+    "issuer": "DataCamp",
+    "date": "2025",
+    "category": "Data Analytics",
+    "verificationUrl": "https://www.datacamp.com/",
+    "skills": [
+      "SQL",
+      "Python",
+      "Exploratory Data Analysis",
+      "Statistical Metrics"
+    ],
+    "featured": true,
+    "image": "assets/certificates/datacamp-data-analyst.png",
+    "hasImage": false
+  },
+  {
+    "id": "huawei-hcia-datacenter",
+    "title": "HCIA-Data Center Facility V2.0",
+    "issuer": "Huawei",
+    "date": "2025",
+    "category": "Cloud & Infrastructure",
+    "verificationUrl": "https://e.huawei.com/",
+    "skills": [
+      "Data Center Architecture",
+      "Power Systems",
+      "Infrastructure Management"
+    ],
+    "featured": false,
+    "image": "assets/certificates/huawei-hcia-datacenter.png",
+    "hasImage": false
+  },
+  {
+    "id": "sas-certified-associate",
+    "title": "SAS Certified Associate 9.4",
+    "issuer": "SAS Institute",
+    "date": "2024",
+    "category": "Statistical Analytics",
+    "verificationUrl": "https://www.sas.com/credentials",
+    "skills": [
+      "SAS Base Programming",
+      "Statistical Modeling",
+      "Data Manipulation"
+    ],
+    "featured": true,
+    "image": "assets/certificates/sas-certified-associate.jpg",
+    "hasImage": false
+  },
+  {
+    "id": "linux-cybersecurity-essentials",
+    "title": "LFC108 Cybersecurity Essentials",
+    "issuer": "The Linux Foundation",
+    "date": "2024",
+    "category": "Cybersecurity",
+    "verificationUrl": "https://training.linuxfoundation.org/",
+    "skills": [
+      "Network Security",
+      "Vulnerability Management",
+      "Linux Hardening"
+    ],
+    "featured": false,
+    "image": "assets/certificates/linux-cybersecurity-essentials.png",
+    "hasImage": false
+  },
+  {
+    "id": "hackerrank-sql-advanced",
+    "title": "SQL (Advanced)",
+    "issuer": "HackerRank",
+    "date": "2024",
+    "category": "Databases",
+    "verificationUrl": "https://www.hackerrank.com/certificates",
+    "skills": [
+      "Complex Joins",
+      "Window Functions",
+      "Query Optimization"
+    ],
+    "featured": false,
+    "image": "assets/certificates/hackerrank-sql-advanced.png",
+    "hasImage": false
+  },
+  {
+    "id": "huawei-hcia-ai",
+    "title": "HCIA-AI V4.0",
+    "issuer": "Huawei",
+    "date": "2024",
+    "category": "Artificial Intelligence",
+    "verificationUrl": "https://e.huawei.com/",
+    "skills": [
+      "Deep Learning",
+      "Computer Vision",
+      "Model Deployment"
+    ],
+    "featured": true,
+    "image": "assets/certificates/huawei-hcia-ai.png",
+    "hasImage": false
+  },
+  {
+    "id": "google-ai-app-building",
+    "title": "Google AI for App Building",
+    "issuer": "Google",
+    "date": "2024",
+    "category": "Generative AI",
+    "verificationUrl": "https://grow.google/",
+    "skills": [
+      "Gemini API",
+      "Prompt Engineering",
+      "Full-Stack AI Integration"
+    ],
+    "featured": false,
+    "image": "assets/certificates/google-ai-app-building.png",
+    "hasImage": false
+  },
+  {
+    "id": "advantech-edgelink",
+    "title": "Advantech EdgeHub EdgeLink",
+    "issuer": "Advantech",
+    "date": "2025",
+    "category": "Industrial IoT & Edge",
+    "verificationUrl": "https://www.advantech.com/",
+    "skills": [
+      "Edge Computing",
+      "ADAM Gateway Telemetry",
+      "Industrial Protocols"
+    ],
+    "featured": false,
+    "image": "assets/certificates/advantech-edgelink.png",
+    "hasImage": false
+  }
+]
