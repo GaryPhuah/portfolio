@@ -1,4 +1,4 @@
-# Security & Anti-Scraper Headers for https://phuahhongxuan.com
+# Security & Search Optimization Headers for https://phuahhongxuan.com
 <IfModule mod_headers.c>
     # Prevent framing, embedding, clickjacking and iframe cloning
     Header set X-Frame-Options "DENY"
@@ -6,13 +6,13 @@
     Header set X-Content-Type-Options "nosniff"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     
-    # Prohibit AI crawlers, scrapers, search cache indexing & snapshots
-    Header set X-Robots-Tag "noai, noimageai, noindex, nofollow, noarchive, nosnippet"
+    # Allow indexing and rich snippets for Search & AI Answer Engines
+    Header set X-Robots-Tag "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 </IfModule>
 
-# Block automated scrapers, AI harvesting bots and cloning tools with HTTP 403 Forbidden
+# Block malicious offline rippers and brute scrapers with HTTP 403 Forbidden
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{HTTP_USER_AGENT} (GPTBot|ChatGPT-User|CCBot|ClaudeBot|anthropic-ai|Claude-Web|Google-Extended|PerplexityBot|Bytespider|FacebookBot|Diffbot|Applebot-Extended|Amazonbot|Cohere-ai|Omgilibot|Scrapy|PetalBot|YouBot|meta-externalagent|HTTrack|Wget|Python-urllib|python-requests|aiohttp|HeadlessChrome) [NC]
+    RewriteCond %{HTTP_USER_AGENT} (HTTrack|Wget|Scrapy) [NC]
     RewriteRule .* - [F,L]
 </IfModule>

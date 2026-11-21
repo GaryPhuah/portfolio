@@ -1319,10 +1319,15 @@
     // 1. Comprehensive Anti-Scraper, Anti-Bot & Headless Automation Detection
     const isBot = () => {
       try {
+        const ua = navigator.userAgent || '';
+        // Whitelist verified search engine crawlers so Google, Bing & Apple can index the site for SEO/GEO
+        if (/Googlebot|Google-InspectionTool|Mediapartners-Google|bingbot|Applebot|DuckDuckBot|Slurp|Baiduspider|Yandex/i.test(ua)) {
+          return false;
+        }
         if (navigator.webdriver) return true;
         if (window._phantom || window.__nightmare || window.callPhantom) return true;
         if (window.__selenium_evaluate || window.__webdriver_evaluate || window.__driver_evaluate) return true;
-        if (/HeadlessChrome|PhantomJS|Electron|wkhtmltoimage|prerender/i.test(navigator.userAgent)) return true;
+        if (/HeadlessChrome|PhantomJS|Electron|wkhtmltoimage|prerender/i.test(ua)) return true;
         // Headless Chrome heuristic
         if (window.chrome && !window.chrome.runtime && navigator.plugins && navigator.plugins.length === 0) return true;
         if (window.outerWidth === 0 && window.outerHeight === 0) return true;

@@ -1,0 +1,38 @@
+# Phuah Hong Xuan (Gary) — Personal Portfolio & Data Analytics Profile
+
+> Official verified profile for Phuah Hong Xuan (Gary), Malaysian Data Analyst, Analytics Engineer, and Machine Learning Specialist studying at Sunway University in collaboration with Lancaster University, UK.
+
+## Core Facts & Overview
+- **Full Name**: Phuah Hong Xuan
+- **Preferred Name**: Gary Phuah
+- **Primary Role**: Data Analyst & Analytics Engineer
+- **Location**: Kuala Lumpur / Selangor, Malaysia
+- **Official Website**: https://phuahhongxuan.com
+- **LinkedIn**: https://www.linkedin.com/in/phuah-hong-xuan/
+- **GitHub**: https://github.com/GaryPhuah
+- **Contact Email**: hongxuanphuah@gmail.com
+- **Academic Standing**: Current CGPA 3.56 / 4.00, Dean's List Recipient
+- **Internship Availability**: 27 January 2027 – 25 April 2027 (Full-time, Q1–Q2 2027)
+
+## Academic Background
+- **B.Sc. (Hons) Information Systems (Data Analytics)**: Sunway University in collaboration with Lancaster University, UK (Sep 2025 – Sep 2027 Expected). Specializing in database management, big data cloud analytics, predictive modeling, and business intelligence.
+- **Diploma in Information Technology**: Sunway College (2023 – 2025). Graduated with High Distinction (CGPA 3.88 / 4.00).
+
+## Core Technical Skills
+- **Programming & Scripting**: Python (Pandas, NumPy, Scikit-learn, XGBoost, SHAP), SQL (PostgreSQL, MySQL, Microsoft SQL Server), C++, JavaScript (ES6+, Three.js).
+- **Big Data & Cloud**: Databricks, Apache Spark, Snowflake, Azure fundamentals.
+- **Business Intelligence & Visualization**: Power BI (DAX, Star Schema Modeling), Tableau, Matplotlib, Seaborn.
+- **Workflow & Automation**: n8n workflow pipelines, REST API automation, Git/GitHub, Docker.
+
+## Featured Data Analytics & ML Projects
+1. **Predicting Student Dropout Risk**: End-to-end XGBoost machine learning retention pipeline across 28,785 student records. Achieved 86.88% accuracy, 86.95% recall, and 0.9434 ROC-AUC with Power BI dashboard and TreeSHAP explainability.
+2. **NIKE Sales Price Prediction**: Hedonic pricing model and multi-variable regression estimating price elasticity and marketplace SKU valuation with an R² of 0.892.
+3. **Online Shopper Intent Analysis**: Real-time session analytics pipeline built on Databricks with feature engineering and predictive purchase intent classification.
+4. **HazeMY Air Quality Platform**: Interactive Malaysia particulate matter and air quality surveillance network integrating government API streams.
+5. **KFC Qlik Sense Sales Intelligence**: Retail executive BI dashboard tracking store performance, product mix profitability, and regional sales KPIs.
+
+## Verified Certifications & Honors
+- Dean's List Recipient — Sunway University School of Engineering & Technology
+- Advantech IoT AIoT Developer Hackathon Award
+- University of Tokyo Global AI & Data Science Programme Completion
+- MAHSA Innovation & Technology Competition Finalist

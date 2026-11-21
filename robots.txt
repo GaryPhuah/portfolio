@@ -1,63 +1,41 @@
 # robots.txt for https://phuahhongxuan.com
-# Disallow automated scraping, AI model training, content harvesting, and cloning.
+# Optimized for Search Engine Optimization (SEO), Generative Engine Optimization (GEO), and Answer Engine Optimization (AEO)
 
-User-agent: GPTBot
-Disallow: /
+User-agent: *
+Allow: /
+Disallow: /brain/
+
+# Search Engine Crawlers (Google, Bing, Apple)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI Search & Answer Engine Crawlers (ChatGPT Search, Perplexity AI, Claude)
+User-agent: OAI-SearchBot
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-User-agent: Bytespider
-Disallow: /
+User-agent: ClaudeBot
+Allow: /
 
-User-agent: FacebookBot
-Disallow: /
-
-User-agent: Diffbot
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: Cohere-ai
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
+# Block bulk scrapers and unauthorized site rippers
 User-agent: Scrapy
 Disallow: /
 
-User-agent: PetalBot
+User-agent: HTTrack
 Disallow: /
 
-User-agent: YouBot
+User-agent: Wget
 Disallow: /
 
-User-agent: meta-externalagent
-Disallow: /
-
-User-agent: *
-Disallow: /assets/
-Disallow: /portfolio/
+Sitemap: https://phuahhongxuan.com/sitemap.xml
