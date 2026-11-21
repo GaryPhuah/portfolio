@@ -1361,9 +1361,8 @@ main {
   border-radius: 14px;
   background: #0c0a12;
   box-shadow: 0 32px 84px rgba(0, 0, 0, 0.78);
-  transition: transform 0.35s cubic-bezier(0.2, 0.75, 0.25, 1), border-color 0.3s ease, filter 0.3s ease;
+  transition: border-color 0.25s ease;
   pointer-events: none;
-  filter: brightness(var(--card-brightness, 0.7)) saturate(var(--card-saturation, 0.85));
 }
 
 .work-card.is-visible .work-card-surface { pointer-events: auto; }
@@ -1372,6 +1371,7 @@ main {
   .work-card.is-active .work-card-surface:hover {
     transform: translateY(-6px) scale(1.02);
     border-color: var(--accent);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.25, 1), border-color 0.25s ease;
   }
 }
 

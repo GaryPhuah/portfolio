@@ -204,41 +204,8 @@
   }
 
   // =========================================================================
-  // 1. TRANSLUCENT LAVENDER CURSOR & MAGNETIC SOCIAL ICONS
+  // 1. MAGNETIC SOCIAL ICONS (NATIVE GPU POINTER)
   // =========================================================================
-  const cursorEl = $('cursor-main');
-  const mouse = { x: -200, y: -200, active: false };
-  const cursor = { x: -200, y: -200 };
-
-  if (cursorEl && matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    window.addEventListener('pointermove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-      mouse.active = true;
-      cursorEl.classList.add('is-visible');
-    }, { passive: true });
-
-    document.addEventListener('mouseleave', () => {
-      mouse.active = false;
-      cursorEl.classList.remove('is-visible');
-    });
-
-    document.querySelectorAll('a, button, .stack-card, .honor-card, .portfolio-card').forEach((el) => {
-      el.addEventListener('pointerenter', () => cursorEl.classList.add('is-hovering'));
-      el.addEventListener('pointerleave', () => cursorEl.classList.remove('is-hovering'));
-    });
-
-    (function cursorLoop() {
-      if (!paused && !reduced.matches && mouse.active) {
-        cursor.x += (mouse.x - cursor.x) / 6;
-        cursor.y += (mouse.y - cursor.y) / 6;
-        cursorEl.style.setProperty('--cx', `${cursor.x.toFixed(1)}px`);
-        cursorEl.style.setProperty('--cy', `${cursor.y.toFixed(1)}px`);
-      }
-      requestAnimationFrame(cursorLoop);
-    })();
-  }
-
   document.querySelectorAll('#social span').forEach((item) => {
     const link = item.querySelector('a');
     if (!link) return;
@@ -268,7 +235,7 @@
       a: 0.16 + Math.random() * 0.34,
       tint: Math.random() > 0.55
     }));
-    let w = 0, h = 0, dpr = 1, raf = 0;
+    let w = 0, h = 0, dpr = 1, raf = 0, dustRunning = false;
 
     function sizeDust() {
       const r = heroCanvas.parentElement.getBoundingClientRect();
@@ -281,28 +248,37 @@
     }
 
     function drawDust() {
+      if (!dustRunning || paused || reduced.matches || document.hidden) {
+        raf = 0;
+        return;
+      }
       ctx.clearRect(0, 0, w, h);
       for (const p of particles) {
-        if (!paused && !reduced.matches) {
-          p.y -= p.vy;
-          if (p.y < -0.04) { p.y = 1.04; p.x = Math.random(); }
-        }
+        p.y -= p.vy;
+        if (p.y < -0.04) { p.y = 1.04; p.x = Math.random(); }
         ctx.fillStyle = p.tint ? `rgba(194, 164, 255, ${p.a})` : `rgba(234, 229, 236, ${p.a * 0.7})`;
         ctx.beginPath();
         ctx.arc(p.x * w, p.y * h, p.r, 0, Math.PI * 2);
         ctx.fill();
       }
-      if (!paused && !reduced.matches && !document.hidden) raf = requestAnimationFrame(drawDust);
-      else raf = 0;
+      raf = requestAnimationFrame(drawDust);
     }
 
     sizeDust();
     window.addEventListener('resize', sizeDust, { passive: true });
-    drawDust();
     dustCtrl = {
-      resume() { if (!raf) raf = requestAnimationFrame(drawDust); },
-      stop() { cancelAnimationFrame(raf); raf = 0; }
+      resume() {
+        if (!dustRunning) {
+          dustRunning = true;
+          if (!raf) raf = requestAnimationFrame(drawDust);
+        }
+      },
+      stop() {
+        dustRunning = false;
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      }
     };
+    dustCtrl.resume();
   }
 
   const charRig = $('char-rig');
@@ -352,6 +328,8 @@
     let idlePoseTimer = 0;
     const targetTilt = { rx: 0, ry: 0, tx: 0, ty: 0 };
     const currentTilt = { rx: 0, ry: 0, tx: 0, ty: 0 };
+    let tiltRaf = 0;
+    let tiltActive = true;
 
     function setPose(src) {
       if (src && src !== currentSrc) { currentSrc = src; charImg.src = src; }
@@ -360,18 +338,23 @@
     function resetToDefaultPose() {
       targetTilt.rx = 0; targetTilt.ry = 0; targetTilt.tx = 0; targetTilt.ty = 0;
       setPose(CENTER_POSE);
+      requestTilt();
     }
 
+    let heroCenter = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.44 };
+    function updateHeroCenter() {
+      heroCenter.x = window.innerWidth * 0.5;
+      heroCenter.y = window.innerHeight * 0.44;
+    }
+    window.addEventListener('resize', updateHeroCenter, { passive: true });
+
     function update360(clientX, clientY) {
-      if (window.scrollY > window.innerHeight * 0.65) return;
+      if (!tiltActive || window.scrollY > window.innerHeight * 0.65) return;
       clearTimeout(idlePoseTimer);
       idlePoseTimer = setTimeout(resetToDefaultPose, 260);
 
-      const rect = charRig.getBoundingClientRect();
-      const cx = rect.left + rect.width * 0.5;
-      const cy = rect.top + rect.height * 0.44;
-      const dx = clientX - cx;
-      const dy = clientY - cy;
+      const dx = clientX - heroCenter.x;
+      const dy = clientY - heroCenter.y;
       const dist = Math.hypot(dx, dy);
 
       const nx = clamp(dx / Math.max(160, window.innerWidth * 0.42), -1, 1);
@@ -381,9 +364,13 @@
       targetTilt.tx = nx * 12;
       targetTilt.ty = ny * 8;
 
-      if (dist < Math.min(72, rect.width * 0.16)) { setPose(CENTER_POSE); return; }
-      const deg = ((Math.atan2(dy, dx) * 180) / Math.PI + 360) % 360;
-      setPose(SECTORS_360[Math.floor(((deg + 15) % 360) / 30)]);
+      if (dist < 72) {
+        setPose(CENTER_POSE);
+      } else {
+        const deg = ((Math.atan2(dy, dx) * 180) / Math.PI + 360) % 360;
+        setPose(SECTORS_360[Math.floor(((deg + 15) % 360) / 30)]);
+      }
+      requestTilt();
     }
 
     window.addEventListener('pointermove', (e) => update360(e.clientX, e.clientY), { passive: true });
@@ -395,19 +382,51 @@
       resetToDefaultPose();
     });
 
-    (function tiltLoop() {
-      if (!paused && !reduced.matches) {
-        currentTilt.rx += (targetTilt.rx - currentTilt.rx) * 0.14;
-        currentTilt.ry += (targetTilt.ry - currentTilt.ry) * 0.14;
-        currentTilt.tx += (targetTilt.tx - currentTilt.tx) * 0.14;
-        currentTilt.ty += (targetTilt.ty - currentTilt.ty) * 0.14;
+    function tiltStep() {
+      tiltRaf = 0;
+      if (!tiltActive || paused || reduced.matches) return;
+      const dx = targetTilt.rx - currentTilt.rx;
+      const dy = targetTilt.ry - currentTilt.ry;
+      const dtx = targetTilt.tx - currentTilt.tx;
+      const dty = targetTilt.ty - currentTilt.ty;
+      if (Math.abs(dx) > 0.02 || Math.abs(dy) > 0.02 || Math.abs(dtx) > 0.02 || Math.abs(dty) > 0.02) {
+        currentTilt.rx += dx * 0.14;
+        currentTilt.ry += dy * 0.14;
+        currentTilt.tx += dtx * 0.14;
+        currentTilt.ty += dty * 0.14;
         charRig.style.setProperty('--rig-rx', `${currentTilt.rx.toFixed(2)}deg`);
         charRig.style.setProperty('--rig-ry', `${currentTilt.ry.toFixed(2)}deg`);
         charRig.style.setProperty('--rig-x', `${currentTilt.tx.toFixed(2)}px`);
         charRig.style.setProperty('--rig-y', `${currentTilt.ty.toFixed(2)}px`);
+        tiltRaf = requestAnimationFrame(tiltStep);
+      } else {
+        currentTilt.rx = targetTilt.rx;
+        currentTilt.ry = targetTilt.ry;
+        currentTilt.tx = targetTilt.tx;
+        currentTilt.ty = targetTilt.ty;
       }
-      requestAnimationFrame(tiltLoop);
-    })();
+    }
+
+    function requestTilt() {
+      if (!tiltRaf && tiltActive && !paused && !reduced.matches) {
+        tiltRaf = requestAnimationFrame(tiltStep);
+      }
+    }
+
+    // In-view observer: sleep both dust and 3D rig when scrolled past hero
+    const introObs = new IntersectionObserver((entries) => {
+      const visible = entries[0].isIntersecting;
+      if (visible) {
+        dustCtrl?.resume();
+        tiltActive = true;
+        requestTilt();
+      } else {
+        dustCtrl?.stop();
+        tiltActive = false;
+        if (tiltRaf) { cancelAnimationFrame(tiltRaf); tiltRaf = 0; }
+      }
+    }, { threshold: 0.05 });
+    introObs.observe(landingEl);
   }
 
   // =========================================================================
@@ -422,10 +441,15 @@
 
   function syncVideoFrame(t) {
     if (!journeyVideo || !videoReady || journeyVideo.readyState < 2 || journeyVideo.seeking) return;
+    if (worksSection && window.scrollY > worksSection.offsetTop) return;
     const dur = Number.isFinite(journeyVideo.duration) && journeyVideo.duration > 1 ? journeyVideo.duration : VIDEO_DURATION;
     const clamped = clamp(t, 0, Math.max(0.05, dur - 0.04));
-    if (Math.abs(journeyVideo.currentTime - clamped) > 0.014) {
-      journeyVideo.currentTime = clamped;
+    if (Math.abs(journeyVideo.currentTime - clamped) > 0.035) {
+      if (typeof journeyVideo.fastSeek === 'function') {
+        journeyVideo.fastSeek(clamped);
+      } else {
+        journeyVideo.currentTime = clamped;
+      }
     }
   }
 
@@ -457,31 +481,9 @@
     journeyVideo.addEventListener('loadeddata', onReady, { once: true });
     journeyVideo.addEventListener('canplay', onReady, { once: true });
     journeyVideo.addEventListener('seeked', () => {
-      if (Math.abs(targetVideoTime - journeyVideo.currentTime) > 0.03) requestTick();
+      if (Math.abs(targetVideoTime - journeyVideo.currentTime) > 0.04) requestTick();
     });
     if (journeyVideo.readyState >= 2) onReady();
-
-    // Cache to blob quietly in background for ultra-responsive local scrubbing
-    const cacheBlob = () => {
-      fetch('assets/journey-hd.mp4?v=20261120')
-        .then((res) => (res.ok ? res.blob() : null))
-        .then((blob) => {
-          if (!blob) return;
-          // Only switch source when idling near top to prevent scrubbing flicker
-          if (window.scrollY < 120 && !journeyVideo.seeking) {
-            const prevTime = journeyVideo.currentTime;
-            journeyVideo.src = URL.createObjectURL(blob);
-            journeyVideo.currentTime = prevTime;
-          }
-        })
-        .catch(() => {});
-    };
-
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(cacheBlob, { timeout: 2500 });
-    } else {
-      setTimeout(cacheBlob, 1500);
-    }
   }
 
   // =========================================================================
@@ -521,7 +523,7 @@
     const roleEl = $(roleId);
     const entries = track ? Array.from(track.querySelectorAll('.bio-entry')) : [];
     const tabs = Array.from(document.querySelectorAll(`.chapter-tab[data-spine="${tabGroup}"]`));
-    let maxShift = 0, spineHeight = 300, activeTabKey = '';
+    let maxShift = 0, spineHeight = 300, activeTabKey = '', lastActiveIdx = -1;
 
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
@@ -541,22 +543,29 @@
       },
       update(sy, vh) {
         if (!section || !track) return;
-        const travel = Math.max(1, section.offsetHeight - vh);
-        const bp = clamp((sy - section.offsetTop) / travel);
+        const sTop = section.offsetTop;
+        const sHeight = section.offsetHeight;
+        if (sy < sTop - vh * 1.2 || sy > sTop + sHeight + vh * 0.4) return;
+
+        const travel = Math.max(1, sHeight - vh);
+        const bp = clamp((sy - sTop) / travel);
         track.style.setProperty('--bio-shift', `${(-bp * maxShift).toFixed(1)}px`);
         bodyRow?.style.setProperty('--bio-progress', String(Math.max(0.14, bp)));
         bodyRow?.style.setProperty('--bio-dot-y', `${(Math.max(0.08, bp) * spineHeight).toFixed(1)}px`);
 
         const idx = clamp(Math.round(bp * (entries.length - 1)), 0, entries.length - 1);
-        entries.forEach((el, i) => el.classList.toggle('is-active', i === idx));
-        const cur = entries[idx];
-        if (cur) {
-          if (yearEl) yearEl.textContent = cur.dataset.year || '';
-          if (roleEl) roleEl.textContent = cur.dataset.role || '';
-          const tabKey = cur.dataset.tab || '';
-          if (tabKey && tabKey !== activeTabKey) {
-            activeTabKey = tabKey;
-            tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tabKey === tabKey));
+        if (idx !== lastActiveIdx) {
+          lastActiveIdx = idx;
+          entries.forEach((el, i) => el.classList.toggle('is-active', i === idx));
+          const cur = entries[idx];
+          if (cur) {
+            if (yearEl) yearEl.textContent = cur.dataset.year || '';
+            if (roleEl) roleEl.textContent = cur.dataset.role || '';
+            const tabKey = cur.dataset.tab || '';
+            if (tabKey && tabKey !== activeTabKey) {
+              activeTabKey = tabKey;
+              tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tabKey === tabKey));
+            }
           }
         }
       },
@@ -658,8 +667,6 @@
       card.style.transform = `translate3d(calc(-50% + ${x.toFixed(2)}px), calc(-50% + ${y.toFixed(2)}px), ${depth.toFixed(1)}px) rotateY(${rotate.toFixed(2)}deg) scale(${scale.toFixed(4)})`;
       card.style.opacity = visible ? String(clamp(1 - (abs - 1.15) * 0.39, 0.08, 1)) : '0';
       card.style.zIndex = String(1000 - Math.round(abs * 100));
-      card.style.setProperty('--card-brightness', String(clamp(1 - abs * 0.16, 0.5, 1)));
-      card.style.setProperty('--card-saturation', String(clamp(1 - abs * 0.08, 0.64, 1)));
       card.classList.toggle('is-active', active);
       card.classList.toggle('is-visible', visible);
       if (workSurfaces[idx]) workSurfaces[idx].tabIndex = active ? 0 : -1;
@@ -685,26 +692,9 @@
     const dt = clamp(now - (prevTick || now - 16.67), 1, 50);
     prevTick = now;
 
-    // 0) Kinetic smooth-wheel scroll glide (yields instantly to scrollbar/anchor/drag jumps)
-    let scrollMoving = false;
-    if (wheelActive && !reduced.matches) {
-      const sDiff = targetWheelY - smoothScrollY;
-      if (Math.abs(sDiff) > 0.45) {
-        smoothScrollY += sDiff * (1 - Math.exp(-dt / 95));
-        lastEngineScrollY = smoothScrollY;
-        window.scrollTo(0, smoothScrollY);
-        scrollMoving = true;
-      } else {
-        smoothScrollY = targetWheelY;
-        lastEngineScrollY = targetWheelY;
-        window.scrollTo(0, targetWheelY);
-        wheelActive = false;
-      }
-    }
-
-    // 1) Hardware-accelerated all-keyframe video scrubbing (zero frame drops, <1ms seeks)
+    // 1) Hardware-accelerated all-keyframe video scrubbing (smooth seeking)
     const vDiff = targetVideoTime - displayVideoTime;
-    const fDone = Math.abs(vDiff) < 0.012;
+    const fDone = Math.abs(vDiff) < 0.015;
     if (!fDone) {
       displayVideoTime += vDiff * (1 - Math.exp(-dt / 75));
       syncVideoFrame(displayVideoTime);
@@ -724,25 +714,8 @@
       renderWorks(workDisplayPos);
     }
 
-    if (scrollMoving || !fDone || !wDone) tickRaf = requestAnimationFrame(tick);
+    if (!fDone || !wDone) tickRaf = requestAnimationFrame(tick);
   }
-
-  let wheelActive = false, smoothScrollY = window.scrollY, targetWheelY = window.scrollY, lastEngineScrollY = window.scrollY;
-
-  window.addEventListener('wheel', (e) => {
-    if (reduced.matches || paused || e.ctrlKey || document.querySelector('dialog[open]')) return;
-    if (e.target.closest('.works-rail, .nav')) return;
-    e.preventDefault();
-    const maxS = Math.max(1, document.documentElement.scrollHeight - (window.innerHeight || 800));
-    if (!wheelActive) {
-      smoothScrollY = window.scrollY;
-      targetWheelY = smoothScrollY;
-    }
-    const delta = e.deltaMode === 1 ? e.deltaY * 36 : e.deltaMode === 2 ? e.deltaY * (window.innerHeight || 800) : e.deltaY;
-    targetWheelY = clamp(targetWheelY + delta, 0, maxS);
-    wheelActive = true;
-    requestTick();
-  }, { passive: false });
 
   function requestTick() {
     if (!tickRaf && !document.hidden) tickRaf = requestAnimationFrame(tick);
@@ -797,13 +770,6 @@
       heroSocialBar.style.setProperty('--hero-text-opacity', String((1 - introExitRatio).toFixed(3)));
     }
 
-    // Synchronize kinetic wheel state whenever external jump (scrollbar, anchor, Playwright) scrolls
-    if (wheelActive && Math.abs(sy - lastEngineScrollY) > 4) {
-      wheelActive = false;
-      smoothScrollY = sy;
-      targetWheelY = sy;
-    }
-
     // Continuous piecewise monotonic timecode mapping across all 985 frames
     targetVideoTime = mapScrollToVideoTime(sy);
 
@@ -849,7 +815,31 @@
   renderWorks(0);
   updateScroll();
   window.addEventListener('resize', () => { measureAll(); updateScroll(); renderWorks(workDisplayPos); }, { passive: true });
-  window.addEventListener('scroll', updateScroll, { passive: true });
+
+  // High-performance RAF-throttled scroll listener with zero wheel interception
+  let scrollScheduled = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollScheduled) {
+      scrollScheduled = true;
+      requestAnimationFrame(() => {
+        updateScroll();
+        scrollScheduled = false;
+      });
+    }
+  }, { passive: true });
+
+  // 6. VIDEO PLAYBACK POWER & DECODER OPTIMIZER (pause offscreen videos)
+  const mediaObs = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      const vid = entry.target;
+      if (entry.isIntersecting) {
+        vid.play().catch(() => {});
+      } else {
+        vid.pause();
+      }
+    }
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.works-star-video, .beyond-video').forEach((v) => mediaObs.observe(v));
 
   timelineRange?.addEventListener('input', () => {
     const vh = window.innerHeight || 800;
@@ -866,7 +856,7 @@
   }
 
   // Seamless cinematic category navigation (Profile, About, Experience, Education, Projects, Credentials, Beyond)
-  document.querySelectorAll('header.header a[href^="#"], .brand[href^="#"]').forEach((link) => {
+  document.querySelectorAll('.site-header a[href^="#"], .brand[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const hash = link.getAttribute('href');
       if (!hash || hash === '#') return;
