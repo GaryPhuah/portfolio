@@ -469,7 +469,7 @@
 
   if (journeyVideo) {
     if (!journeyVideo.getAttribute('src')) {
-      journeyVideo.src = 'assets/journey-hd.mp4?v=20261120';
+      journeyVideo.src = 'assets/journey-hd.mp4?v=20261121_noghost';
     }
 
     const onReady = () => {
@@ -641,8 +641,8 @@
       [eduTop, 24.0],                         // V1: Sunway College tee & backpack
       [eduTop + eduTravel * 0.50, 25.75],     // V1: Sunway University after notebook wipe
       [eduTop + eduTravel, 29.08],            // V1: Graduation Gown & Scroll after cap wipe
-      [gradTop, 32.08],                       // V1: Suit + Cap + 3D Charts/Globe/Conveyor
-      [Math.max(gradTop + vh * 0.3, projTop - vh * 0.15), 34.1],
+      [gradTop, 32.0],                        // V1: Suit + Cap + 3D Charts/Globe/Conveyor (Crisp Globe)
+      [Math.max(gradTop + vh * 0.3, projTop - vh * 0.15), 34.0],
     ];
   }
 
@@ -1310,6 +1310,107 @@
         rippleWrap.remove();
       }, 550);
     }, { passive: true });
+  })();
+
+  // =========================================================================
+  // 13. CLIENT DEFENSE, ANTI-INSPECTION & INTELLECTUAL PROPERTY PROTECTION
+  // =========================================================================
+  (() => {
+    // 1. Anti-AI / Bot Crawler & Webdriver Detection
+    if (navigator.webdriver || window._phantom || window.__nightmare || window.callPhantom) {
+      document.documentElement.innerHTML = '<div style="background:#050507;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;letter-spacing:0.04em;">Automated scraping & AI cloning prohibited.</div>';
+      return;
+    }
+
+    // 2. Anti-DevTools & Keyboard Shortcut Interception
+    const blockKeys = (e) => {
+      // F12
+      if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+      const isCmdOrCtrl = e.ctrlKey || e.metaKey;
+      // Ctrl+Shift+I / J / C / K (DevTools & Console)
+      if (isCmdOrCtrl && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c', 'K', 'k'].includes(e.key)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+      // Ctrl+U (View Source), Ctrl+S (Save Page), Ctrl+P (Print Page)
+      if (isCmdOrCtrl && ['U', 'u', 'S', 's', 'P', 'p'].includes(e.key)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+    window.addEventListener('keydown', blockKeys, { capture: true, passive: false });
+
+    // 3. Right-Click Context Menu Suppression
+    window.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, { capture: true, passive: false });
+
+    // 4. Anti-Copy, Anti-Cut, Anti-Drag Protection
+    ['copy', 'cut', 'dragstart', 'selectstart'].forEach((evt) => {
+      document.addEventListener(evt, (e) => {
+        if (['INPUT', 'TEXTAREA'].includes(e.target?.tagName)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }, { capture: true, passive: false });
+    });
+
+    // 5. PrintScreen Key Overwrite (Clear Clipboard)
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'PrintScreen' || e.keyCode === 44) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText('Protected Content (c) Gary Phuah. All rights reserved.').catch(() => {});
+        }
+      }
+    }, { capture: true });
+
+    // 6. Anti-Screenshot Privacy Curtain (Blurs screen when window loses focus e.g. Snipping Tool)
+    const privacyCurtain = document.getElementById('privacy-curtain');
+    if (privacyCurtain) {
+      const showCurtain = () => privacyCurtain.classList.add('is-active');
+      const hideCurtain = () => privacyCurtain.classList.remove('is-active');
+
+      window.addEventListener('blur', showCurtain, { passive: true });
+      window.addEventListener('focus', hideCurtain, { passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) showCurtain();
+        else hideCurtain();
+      }, { passive: true });
+    }
+
+    // 7. Anti-Debugger Loop (Freezes execution if DevTools is forcibly opened)
+    setInterval(() => {
+      try {
+        (function() {
+          return false;
+        }['constructor']('debugger')());
+      } catch (_) {}
+    }, 150);
+
+    // 8. DevTools Window Dock / Dimension Detection
+    const devtoolsShield = document.getElementById('devtools-shield');
+    if (devtoolsShield) {
+      const checkDevTools = () => {
+        const threshold = 160;
+        const widthDiff = window.outerWidth - window.innerWidth > threshold;
+        const heightDiff = window.outerHeight - window.innerHeight > threshold;
+        if (widthDiff || heightDiff) {
+          devtoolsShield.classList.add('is-detected');
+        } else {
+          devtoolsShield.classList.remove('is-detected');
+        }
+      };
+      window.addEventListener('resize', checkDevTools, { passive: true });
+      checkDevTools();
+    }
   })();
 
 })();
