@@ -1,20 +1,102 @@
-# Security & Search Optimization Headers for https://phuahhongxuan.com
-DirectoryIndex index.html
+# ==============================================================================
+# Security, Performance & Routing Configuration for https://phuahhongxuan.com
+# ==============================================================================
 
+# 1. Directory & Routing Protection
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# 2. Security Headers (Anti-Clickjacking, Anti-Sniff, Anti-Clone)
 <IfModule mod_headers.c>
-    # Prevent framing, embedding, clickjacking and iframe cloning
     Header set X-Frame-Options "DENY"
     Header set Content-Security-Policy "frame-ancestors 'none';"
     Header set X-Content-Type-Options "nosniff"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
     
-    # Allow indexing and rich snippets for Search & AI Answer Engines
+    # Allow indexing & high-quality snippets for search engines & AI answer engines
     Header set X-Robots-Tag "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 </IfModule>
 
-# Block malicious offline rippers and brute scrapers with HTTP 403 Forbidden
+# 3. Server-Side Anti-Scraper & Malicious Tool Shield
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{HTTP_USER_AGENT} (HTTrack|Wget|Scrapy) [NC]
+
+    # Block automated vulnerability scanners, brute-force rippers, and malicious scraping tools
+    RewriteCond %{HTTP_USER_AGENT} (HTTrack|Wget|Scrapy|sqlmap|nikto|masscan|dirbuster|gobuster|nmap|zgrab) [NC]
     RewriteRule .* - [F,L]
+
+    # Hotlink Protection for large media (prevent unauthorized bandwidth draining)
+    # Allows requests from own domain, search engine web crawlers, social share bots, and blank referrers
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?phuahhongxuan\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://([a-zA-Z0-9-]+\.)*google\.(com|[a-z]{2}) [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://([a-zA-Z0-9-]+\.)*bing\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://([a-zA-Z0-9-]+\.)*linkedin\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://([a-zA-Z0-9-]+\.)*github\.com [NC]
+    RewriteCond %{REQUEST_URI} \.(mp4|webm)$ [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# 4. Gzip / Deflate Compression (Compress HTML/CSS/JS by ~70% on transfer)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 5. Long-Term Browser Caching (1 Year for Static Assets, 0.05s Instant Reloads)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images & Icons
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Videos
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # Stylesheets & Scripts
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Manifest & Data
+    ExpiresByType application/manifest+json "access plus 1 week"
+    ExpiresByType application/json "access plus 1 week"
+    
+    # HTML (Quick revalidation)
+    ExpiresByType text/html "access plus 10 minutes"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Cache-Control headers for static assets
+    <FilesMatch "\.(ico|jpe?g|png|gif|webp|svg|woff2?|mp4|webm)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
 </IfModule>

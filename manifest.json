@@ -1,0 +1,31 @@
+{
+  "name": "Phuah Hong Xuan (Gary) — Data Analyst & Automation Portfolio",
+  "short_name": "Gary Phuah",
+  "description": "Official portfolio of Phuah Hong Xuan (Gary). Explore predictive ML models, Databricks pipelines, and verified honors.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#050507",
+  "theme_color": "#050507",
+  "icons": [
+    {
+      "src": "assets/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["portfolio", "education", "business", "productivity"]
+}
