@@ -1316,9 +1316,22 @@
   // 13. CLIENT DEFENSE, ANTI-INSPECTION & INTELLECTUAL PROPERTY PROTECTION
   // =========================================================================
   (() => {
-    // 1. Anti-AI / Bot Crawler & Webdriver Detection
-    if (navigator.webdriver || window._phantom || window.__nightmare || window.callPhantom) {
-      document.documentElement.innerHTML = '<div style="background:#050507;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;letter-spacing:0.04em;">Automated scraping & AI cloning prohibited.</div>';
+    // 1. Comprehensive Anti-Scraper, Anti-Bot & Headless Automation Detection
+    const isBot = () => {
+      try {
+        if (navigator.webdriver) return true;
+        if (window._phantom || window.__nightmare || window.callPhantom) return true;
+        if (window.__selenium_evaluate || window.__webdriver_evaluate || window.__driver_evaluate) return true;
+        if (/HeadlessChrome|PhantomJS|Electron|wkhtmltoimage|prerender/i.test(navigator.userAgent)) return true;
+        // Headless Chrome heuristic
+        if (window.chrome && !window.chrome.runtime && navigator.plugins && navigator.plugins.length === 0) return true;
+        if (window.outerWidth === 0 && window.outerHeight === 0) return true;
+      } catch (_) {}
+      return false;
+    };
+
+    if (isBot()) {
+      document.documentElement.innerHTML = '<!DOCTYPE html><html><head><title>Access Restricted</title></head><body style="background:#050507;color:#eae5ec;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;letter-spacing:0.04em;text-align:center;padding:24px;"><div><h2 style="margin-bottom:8px;">Access Restricted</h2><p style="color:#adacac;">Automated scraping, AI data extraction and cloning are strictly prohibited.</p></div></body></html>';
       return;
     }
 
@@ -1372,21 +1385,7 @@
       }
     }, { capture: true });
 
-    // 6. Anti-Screenshot Privacy Curtain (Blurs screen when window loses focus e.g. Snipping Tool)
-    const privacyCurtain = document.getElementById('privacy-curtain');
-    if (privacyCurtain) {
-      const showCurtain = () => privacyCurtain.classList.add('is-active');
-      const hideCurtain = () => privacyCurtain.classList.remove('is-active');
-
-      window.addEventListener('blur', showCurtain, { passive: true });
-      window.addEventListener('focus', hideCurtain, { passive: true });
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) showCurtain();
-        else hideCurtain();
-      }, { passive: true });
-    }
-
-    // 7. Anti-Debugger Loop (Freezes execution if DevTools is forcibly opened)
+    // 6. Anti-Debugger Loop (Freezes execution if DevTools is forcibly opened)
     setInterval(() => {
       try {
         (function() {
@@ -1395,7 +1394,7 @@
       } catch (_) {}
     }, 150);
 
-    // 8. DevTools Window Dock / Dimension Detection
+    // 7. DevTools Window Dock / Dimension Detection
     const devtoolsShield = document.getElementById('devtools-shield');
     if (devtoolsShield) {
       const checkDevTools = () => {

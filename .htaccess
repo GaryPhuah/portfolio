@@ -1,0 +1,18 @@
+# Security & Anti-Scraper Headers for https://phuahhongxuan.com
+<IfModule mod_headers.c>
+    # Prevent framing, embedding, clickjacking and iframe cloning
+    Header set X-Frame-Options "DENY"
+    Header set Content-Security-Policy "frame-ancestors 'none';"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Prohibit AI crawlers, scrapers, search cache indexing & snapshots
+    Header set X-Robots-Tag "noai, noimageai, noindex, nofollow, noarchive, nosnippet"
+</IfModule>
+
+# Block automated scrapers, AI harvesting bots and cloning tools with HTTP 403 Forbidden
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_USER_AGENT} (GPTBot|ChatGPT-User|CCBot|ClaudeBot|anthropic-ai|Claude-Web|Google-Extended|PerplexityBot|Bytespider|FacebookBot|Diffbot|Applebot-Extended|Amazonbot|Cohere-ai|Omgilibot|Scrapy|PetalBot|YouBot|meta-externalagent|HTTrack|Wget|Python-urllib|python-requests|aiohttp|HeadlessChrome) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>

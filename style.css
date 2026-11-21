@@ -77,29 +77,6 @@ img, video, canvas, svg {
   }
 }
 
-/* Anti-Screenshot Privacy Shield (Activates when window loses focus e.g. Snipping Tool) */
-#privacy-curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  background: rgba(5, 5, 7, 0.95);
-  backdrop-filter: blur(48px);
-  -webkit-backdrop-filter: blur(48px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-#privacy-curtain.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .privacy-badge {
   display: inline-flex;
   align-items: center;
