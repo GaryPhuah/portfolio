@@ -1,4 +1,6 @@
 # Security & Search Optimization Headers for https://phuahhongxuan.com
+DirectoryIndex index.html
+
 <IfModule mod_headers.c>
     # Prevent framing, embedding, clickjacking and iframe cloning
     Header set X-Frame-Options "DENY"
