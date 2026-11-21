@@ -381,6 +381,27 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-avatar-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: 1px solid rgba(194, 164, 255, 0.4);
+  box-shadow: 0 0 8px rgba(194, 164, 255, 0.22);
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand:hover .brand-avatar-icon {
+  transform: scale(1.1) rotate(-4deg);
+  box-shadow: 0 0 14px rgba(194, 164, 255, 0.5);
 }
 
 .nav {
