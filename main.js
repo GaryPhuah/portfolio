@@ -1313,34 +1313,10 @@
   })();
 
   // =========================================================================
-  // 13. CLIENT DEFENSE, ANTI-INSPECTION & INTELLECTUAL PROPERTY PROTECTION
+  // 13. CLIENT DEFENSE & INTERACTIVE UTILITIES (ZERO SCREEN-BLOCKING)
   // =========================================================================
   (() => {
-    // 1. Comprehensive Anti-Scraper, Anti-Bot & Headless Automation Detection
-    const isBot = () => {
-      try {
-        const ua = navigator.userAgent || '';
-        // Whitelist verified search engine crawlers so Google, Bing & Apple can index the site for SEO/GEO
-        if (/Googlebot|Google-InspectionTool|Mediapartners-Google|bingbot|Applebot|DuckDuckBot|Slurp|Baiduspider|Yandex/i.test(ua)) {
-          return false;
-        }
-        if (navigator.webdriver) return true;
-        if (window._phantom || window.__nightmare || window.callPhantom) return true;
-        if (window.__selenium_evaluate || window.__webdriver_evaluate || window.__driver_evaluate) return true;
-        if (/HeadlessChrome|PhantomJS|Electron|wkhtmltoimage|prerender/i.test(ua)) return true;
-        // Headless Chrome heuristic
-        if (window.chrome && !window.chrome.runtime && navigator.plugins && navigator.plugins.length === 0) return true;
-        if (window.outerWidth === 0 && window.outerHeight === 0) return true;
-      } catch (_) {}
-      return false;
-    };
-
-    if (isBot()) {
-      document.documentElement.innerHTML = '<!DOCTYPE html><html><head><title>Access Restricted</title></head><body style="background:#050507;color:#eae5ec;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;letter-spacing:0.04em;text-align:center;padding:24px;"><div><h2 style="margin-bottom:8px;">Access Restricted</h2><p style="color:#adacac;">Automated scraping, AI data extraction and cloning are strictly prohibited.</p></div></body></html>';
-      return;
-    }
-
-    // 2. Anti-DevTools & Keyboard Shortcut Interception
+    // 1. Anti-DevTools & Shortcut Interception (Keyboard shortcuts blocked quietly without screen takeovers)
     const blockKeys = (e) => {
       // F12
       if (e.key === 'F12' || e.keyCode === 123) {
@@ -1364,15 +1340,15 @@
     };
     window.addEventListener('keydown', blockKeys, { capture: true, passive: false });
 
-    // 3. Right-Click Context Menu Suppression
+    // 2. Right-Click Context Menu Suppression
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault();
       e.stopPropagation();
       return false;
     }, { capture: true, passive: false });
 
-    // 4. Anti-Copy, Anti-Cut, Anti-Drag Protection
-    ['copy', 'cut', 'dragstart', 'selectstart'].forEach((evt) => {
+    // 3. Anti-Copy & Anti-Drag on site media (inputs remain editable)
+    ['copy', 'cut', 'dragstart'].forEach((evt) => {
       document.addEventListener(evt, (e) => {
         if (['INPUT', 'TEXTAREA'].includes(e.target?.tagName)) return;
         e.preventDefault();
@@ -1381,41 +1357,7 @@
       }, { capture: true, passive: false });
     });
 
-    // 5. PrintScreen Key Overwrite (Clear Clipboard)
-    window.addEventListener('keyup', (e) => {
-      if (e.key === 'PrintScreen' || e.keyCode === 44) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText('Protected Content (c) Gary Phuah. All rights reserved.').catch(() => {});
-        }
-      }
-    }, { capture: true });
-
-    // 6. Anti-Debugger Loop (Freezes execution if DevTools is forcibly opened)
-    setInterval(() => {
-      try {
-        (function() {
-          return false;
-        }['constructor']('debugger')());
-      } catch (_) {}
-    }, 150);
-
-    // 7. DevTools Window Dock / Dimension Detection
-    const devtoolsShield = document.getElementById('devtools-shield');
-    if (devtoolsShield) {
-      const checkDevTools = () => {
-        const threshold = 160;
-        const widthDiff = window.outerWidth - window.innerWidth > threshold;
-        const heightDiff = window.outerHeight - window.innerHeight > threshold;
-        if (widthDiff || heightDiff) {
-          devtoolsShield.classList.add('is-detected');
-        } else {
-          devtoolsShield.classList.remove('is-detected');
-        }
-      };
-      window.addEventListener('resize', checkDevTools, { passive: true });
-      checkDevTools();
-    }
-    // 8. Interactive Toast Notification & One-Click Email Copy
+    // 4. Interactive Toast Notification & One-Click Email Copy
     function showToast(msg) {
       let toast = document.getElementById('site-toast');
       if (!toast) {
