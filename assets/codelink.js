@@ -247,14 +247,6 @@
 
       this.buildCards();
       this.buildConnections();
-      this.lineElements.forEach((line) => {
-        line.classList.add('is-drawn');
-        line.style.strokeDashoffset = '0';
-      });
-      if (this.avatarWrap) {
-        this.avatarWrap.classList.add('is-still');
-        this.avatarWrap.classList.add('is-activated');
-      }
       this.bindModalEvents();
       this.buildVault();
       this.bindVaultEvents();
@@ -283,14 +275,13 @@
         card.setAttribute('aria-label', `Inspect ${cert.title} by ${cert.issuer}`);
         card.dataset.idx = idx;
 
-        // Position styles
+        // Position & 3D orientation styles via CSS tokens
         card.style.left = `${layout.x}%`;
         card.style.top = `${layout.y}%`;
         card.style.width = `min(${layout.w}px, 28vw)`;
-        card.style.setProperty('--tx', '0px');
-        card.style.setProperty('--ty', '0px');
-        card.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(${layout.rx}deg) rotateY(${layout.ry}deg) rotateZ(${layout.rz}deg) scale(1)`;
-        card.style.opacity = '1';
+        card.style.setProperty('--rx', `${layout.rx}deg`);
+        card.style.setProperty('--ry', `${layout.ry}deg`);
+        card.style.setProperty('--rz', `${layout.rz}deg`);
 
         // Card Content with real document image and award badge
         card.innerHTML = `
@@ -383,7 +374,7 @@
 
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', pathData);
-        path.setAttribute('class', 'codelink-line is-drawn');
+        path.setAttribute('class', 'codelink-net-line');
         path.setAttribute('stroke', 'url(#codelink-line-grad)');
         path.setAttribute('stroke-width', '1.6');
         path.setAttribute('fill', 'none');
@@ -401,11 +392,9 @@
       const line = this.lineElements[idx];
       if (!line) return;
       if (isHovered) {
-        line.classList.add('is-hovered');
-        line.setAttribute('stroke-width', '3');
+        line.classList.add('is-highlighted');
       } else {
-        line.classList.remove('is-hovered');
-        line.setAttribute('stroke-width', '1.6');
+        line.classList.remove('is-highlighted');
       }
     }
 
@@ -583,7 +572,7 @@
             }
           });
         },
-        { threshold: 0.2 }
+        { rootMargin: '120px 0px 0px 0px', threshold: 0.08 }
       );
 
       observer.observe(this.section);
@@ -600,6 +589,7 @@
       }
 
       if (this.video) {
+        this.video.currentTime = 0;
         const playPromise = this.video.play();
         if (playPromise !== undefined) {
           playPromise
@@ -607,7 +597,7 @@
               this.video.addEventListener('ended', () => this.activateKnowledgeNetwork(), { once: true });
               setTimeout(() => {
                 if (this.phase < 2) this.activateKnowledgeNetwork();
-              }, 2600);
+              }, 2300);
             })
             .catch(() => this.activateKnowledgeNetwork());
         } else {
@@ -625,15 +615,17 @@
         this.avatarWrap.classList.add('is-activated');
       }
 
-      this.lineElements.forEach((line) => {
-        line.classList.add('is-drawn');
-        line.style.strokeDashoffset = '0';
+      this.lineElements.forEach((line, idx) => {
+        setTimeout(() => {
+          line.classList.add('is-drawn');
+        }, idx * 40);
       });
 
       this.cardElements.forEach((card, idx) => {
         setTimeout(() => {
           card.classList.add('is-visible');
-        }, idx * 60);
+          setTimeout(() => card.classList.add('is-floating'), 650);
+        }, 100 + idx * 60);
       });
     }
 
@@ -646,7 +638,6 @@
 
       this.lineElements.forEach((line) => {
         line.classList.add('is-drawn');
-        line.style.strokeDashoffset = '0';
       });
 
       this.cardElements.forEach((card) => {
